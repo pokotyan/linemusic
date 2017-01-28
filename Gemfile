@@ -47,4 +47,7 @@ end
 group :production do
   gem 'unicorn'
 end
+gem 'bootstrap-sass'
+gem "haml-rails"
+gem "erb2haml"
 
