@@ -3,6 +3,9 @@
 @import "font";
 @import "header";
 @import "caption";
+@import "slick/slick";
+@import "slick/slick-theme";
+@import "myslick";
 
 //ヘッダーを常に上で固定
 body {

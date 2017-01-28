@@ -1,0 +1,41 @@
+.slider {
+width: 90%;
+margin: 0 auto 80px;
+}
+.slick-slide img {
+width: 100%;
+height: auto;
+}
+.myslider{
+width: 100%;
+}
+//画像周りの余白をなくす
+.myslider .slick-slide{
+margin: 0px;
+}
+
+//左右の矢印の色を変える。デフォルトは白色なので変えないと見えない js側でarrows: trueも忘れずに
+.slick-prev:before, .slick-next:before {
+    color:gray !important;
+}
+
+//左右の画像を白黒
+.myslider .slick-slide:not(.slick-center) {
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  filter: grayscale(100%);
+  transition: 0.2s linear;
+}
+
+//矢印の位置調整と、表示順番を最初に。デフォルトで矢印は画像の外側なので、内側に寄せないと「矢印がない！」という状態になる
+//http://morobrand.net/mororeco/jquery/slick/
+.slick-prev{left:20px; top:88%;}
+.slick-next{right:20px; top:88%;}
+.slick-arrow{z-index:10;/* 値は適当に */}
+
+//ドットマークの画像遷移ボタンを画像の内側に表示。
+.slick-dots {
+    bottom: 25px;
+}
