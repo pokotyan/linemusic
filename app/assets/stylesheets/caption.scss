@@ -1,0 +1,90 @@
+//参考 https://liginc.co.jp/web/html-css/css/21024
+.thumb-container{
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  flex-wrap:wrap;
+  justify-content: center;
+
+  position: relative;
+  //.thumbのmargin-leftを帳消しにして全体が右によるのを防ぐ。
+  left: -26px;
+}
+//各サムネイル間の上と左の余白
+.thumb{
+  margin-top: 29px;
+  margin-left: 26px;
+}
+
+//キャプション 参考 http://www.nxworld.net/tips/css-only-caption-effect.html#anchor01
+figure {
+  position: relative;
+  overflow: hidden;
+  width: 142px;
+}
+figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,.6);
+  -webkit-transition: .3s;
+  transition: .3s;
+  opacity: 0;
+}
+figure:hover figcaption {
+  opacity: 1;
+}
+
+
+//サムネイル画像
+.thumb_image{
+  width: 100%;
+  height: auto;
+  &.thumb_caption{
+    opacity: 0;
+  }
+}
+
+//画像（再生ボタン）の縦横中央寄せ
+figcaption {
+  display:table-cell;
+  text-align:center;
+  vertical-align:middle;
+}
+.play-trigger {
+  position: absolute;
+  display: block;
+  height: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+
+
+//再生ボタンホバー時に拡大
+.play-trigger{
+transition: all 0.2s linear; //開く速さ
+
+//再生ボタンのデフォルトカラー
+fill: white;
+stroke: white;
+}
+.play-trigger:hover {
+-webkit-transform: scale(2.4);
+-moz-transform: scale(2.4);
+-o-transform: scale(2.4);
+-ms-transform: scale(2.4);
+transform: scale(1.3); //拡大倍率
+z-index: 9999;
+
+//再生ボタンのホバー時のカラー
+fill: green;
+stroke: green;
+}

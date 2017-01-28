@@ -2,3 +2,18 @@
 @import "bootstrap";
 @import "font";
 @import "header";
+@import "caption";
+@import "slick/slick";
+@import "slick/slick-theme";
+@import "myslick";
+
+//ヘッダーを常に上で固定
+body {
+    padding: 109px 0 52px 0;
+}
+
+//デフォルトのaタグの色を全部黒に設定
+a:link { color: #000000; }
+a:visited { color: #000000; }
+a:hover { color: #000000; }
+a:active { color: #000000; }

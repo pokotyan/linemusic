@@ -1,0 +1,36 @@
+.slider.myslider
+  %div
+    =link_to "#" do
+      =image_tag("carousel.jpg")
+  %div
+    =link_to "#" do
+      =image_tag("carousel.jpg")
+  %div
+    =link_to "#" do
+      =image_tag("carousel.jpg")
+.container
+  .thumb-container
+    .thumb
+      %figure
+        =image_tag("sample.jpg",class:"thumb_image")
+        %figcaption
+          = link_to "#" do
+            = image_tag("sample.jpg",class:"thumb_image thumb_caption")
+          = link_to 'javascript:void(0)' do
+            = embedded_svg("play_button.svg",class:"play-trigger")
+      %h6
+        = link_to 'javascript:void(0)' do
+          = "曲名"
+      %h6= link_to "アーティスト名","#",style:"color: #969696;"
+    .thumb
+      %figure
+        =image_tag("sample.jpg",class:"thumb_image")
+        %figcaption
+          = link_to "#" do
+            = image_tag("sample.jpg",class:"thumb_image thumb_caption")
+          = link_to 'javascript:void(0)' do
+            = embedded_svg("play_button.svg",class:"play-trigger")
+      %h6
+        = link_to 'javascript:void(0)' do
+          = "曲名"
+      %h6= link_to "アーティスト名","#",style:"color: #969696;"
