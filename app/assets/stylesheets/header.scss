@@ -1,0 +1,135 @@
+/*---------------- navbar -------------- */
+//ヘッダーの「LINE MUSIC」の文字列
+.navbar-brand{
+  font-family: 'VarelaRound-Regular';
+}
+/* navbarを2列にする。また、下線をひく https://teratail.com/questions/7025 */
+.navbar-header{
+float: none;
+border-bottom: 1px solid #f1f1f1;
+}
+/* navbar 全体の背景色とボーダーカラー */
+.navbar-inverse {
+background-color: white;
+border-color: #f1f1f1;
+border-top: 3px solid #38c322;
+}
+/* navbar テキストカラー */
+.navbar-inverse .navbar-nav > li > a {
+color: #a1a1a1;
+}
+/* navbar hover,focus時のテキストカラー */
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+color: black;
+background-color: transparent;
+}
+/* navbar active設定時のカラー */
+.navbar-inverse .navbar-nav>.active>a,
+.navbar-inverse .navbar-nav>.active>a:focus,
+.navbar-inverse .navbar-nav>.active>a:hover {
+color: #38c322;
+background-color: white;
+}
+.navbar-inverse .navbar-nav> li.active {
+border-bottom: 3px solid #38c322;
+}
+
+/* navbar dropdown の文字色 */
+.navbar-inverse .navbar-nav > li.dropdown > a {
+color: #a1a1a1;
+}
+/* navbar dropdown を開いているときの文字色と背景色 */
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus {
+color: #a1a1a1;
+background-color: white;
+}
+
+//ヘッダーにある丸いユーザー画像のクラス
+.header-user-image{
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+
+  //画像右のユーザー名を横並びで表示させる
+  float: left;
+  //ユーザー名との間隔
+  margin-right: 10px;
+}
+
+//検索フォーム左側の角を丸く
+.input-group .form-control:first-child {
+border-top-left-radius: 20px;
+border-bottom-left-radius: 20px;
+}
+//検索フォーム右側の角を丸く
+.input-group-btn > .btn {
+border-radius: 20px;
+}
+.input-group-btn > .btn-default {
+color: #d3d5d8;
+}
+//検索フォームのボーダーを消す。（通常時は表示されてないけどサイズを狭めたらでてきた）
+.navbar-inverse .navbar-form{
+border: none;
+}
+
+
+/* 横幅狭めた時のハンバーガーのボーダー、いらんので消す */
+.navbar-inverse .navbar-collapse{
+border: none;
+}
+/* ハンバーガー開いた時のアクティブリストの下線、いらんので消す */
+#header-menu[aria-expanded="true"] .navbar-nav > li.active{
+border-bottom: none;
+}
+
+/*---------------- ハンバーガーの色 -------------- */
+//背景 閉じてるとき
+.navbar-inverse .navbar-toggle{
+  background-color: white;
+  border: white;
+}
+//背景 フォーカスしてるとき
+.navbar-inverse .navbar-toggle:hover,
+.navbar-inverse .navbar-toggle:focus{
+  background-color: white;
+  border: white;
+}
+//背景 開いてるとき
+.navbar-inverse .navbar-toggle[aria-expanded="true"]{
+  background-color: #38c322;
+  border: #38c322;
+}
+
+//三本線 閉じてるとき
+.navbar-inverse .navbar-toggle .icon-bar{
+background-color: #38c322;
+}
+//三本線 開いてるとき
+.navbar-inverse .navbar-toggle[aria-expanded="true"] .icon-bar{
+background-color: white;
+}
+
+/*-------------- ハンバーガーをクリックしたらバツになるアニメーション --------------*/
+//参考：http://www.nxworld.net/tips/12-css-hamburger-menu-active-effect.html
+//バツになる速度
+.navbar-toggle,
+.navbar-toggle span {
+  transition: all .4s;
+}
+//ハンバーガーの3本線のそれぞれのアニメーション
+//上下の線はななめになって真ん中の線は消える。
+.navbar-inverse .navbar-toggle[aria-expanded="true"] span:nth-of-type(2) {
+  -webkit-transform: translateY(6px) rotate(-46deg);
+  transform: translateY(6px) rotate(-46deg);
+}
+.navbar-inverse .navbar-toggle[aria-expanded="true"] span:nth-of-type(3) {
+  opacity: 0;
+}
+.navbar-inverse .navbar-toggle[aria-expanded="true"] span:nth-of-type(4) {
+  -webkit-transform: translateY(-6px) rotate(46deg);
+  transform: translateY(-6px) rotate(46deg);
+}
