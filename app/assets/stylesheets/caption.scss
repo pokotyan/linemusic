@@ -16,6 +16,25 @@
   &.flex-start{
     justify-content: flex-start;
   }
+  // ジャンル名とジャンル選択のselectboxをspace-betweenを使って両端に設置。(要素がふたつしかないので両端になる)
+  // また、selectboxはdiv内で下寄せににしたいのでpositonを親子で指定してbottom: 0;
+  // space-betweenとabsoluteを併用したらセレクトボックスがdivの外に飛び出した。right:0;したらdiv内右端に収まった
+  &.genre{
+    justify-content: space-between;
+    left: 0px;
+    position:relative;
+    padding-bottom:0;
+    .genre_select_wrapper{
+      position: absolute;
+      bottom: 0;
+      right:0;
+      li{list-style-type: none;}
+      .select-button{
+        border-radius: 0px;
+        border-color: #ebebeb;
+      }
+    }
+  }
 }
 //各サムネイル間の上と左の余白
 .thumb{

@@ -3,6 +3,11 @@ class GenresController < ApplicationController
   def index
     @genres = Genre.all
   end
+  def show
+    @genre = Genre.find(params[:id])
+    genre_albums = @genre.artists.map{ | artist | artist.albums }.flatten
+    @genre_songs = genre_albums.map{ | album | album.songs }.flatten
+  end
   def new
     @genre = Genre.new
   end
