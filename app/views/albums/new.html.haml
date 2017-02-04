@@ -17,6 +17,10 @@
         %br/
         = f.file_field :album_image
       .field
+        = f.label :release_date, "発売日"
+        %br/
+        = f.date_select :release_date
+      .field
         = f.label :artist_id, "アーティストを選択"
         %br/
         = f.collection_select :artist_id, Artist.all.order("name"), :id, :name, prompt: '選択してください'
