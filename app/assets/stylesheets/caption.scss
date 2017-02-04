@@ -11,6 +11,8 @@
   position: relative;
   //.thumbのmargin-leftを帳消しにして全体が右によるのを防ぐ。
   left: -26px;
+  //footerの後ろにサムネイルが隠れないようにpaddingをとる。
+  padding-bottom:100px;
 }
 //各サムネイル間の上と左の余白
 .thumb{

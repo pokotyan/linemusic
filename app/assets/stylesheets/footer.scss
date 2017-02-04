@@ -1,0 +1,23 @@
+.footer{
+  position: fixed;
+  bottom:0px;
+  left:0px;
+  right:0px;
+  height:70px;
+  background-color:#1e283c;
+  z-index:2; //サムネイルのキャプションがフッターの上に重ならないようにする
+  .flex-container{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: center;
+    align-items: center;
+    .column{
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+}

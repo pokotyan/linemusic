@@ -1,0 +1,6 @@
+%footer.footer
+  .flex-container
+    .flex-container.column
+      #song_info
+        = render 'layouts/song_info'
+      = audio_tag('', id:"song", :autoplay => false, :controls => true)
