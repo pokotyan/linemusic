@@ -1,6 +1,9 @@
 class ArtistsController < ApplicationController
 
   def show
+    @artist = Artist.find(params[:id])
+    @artist_songs = @artist.albums.map{|a|a.songs}.flatten
+    @songs_id = @artist_songs.map{|s|s.id}
   end
 
   def new

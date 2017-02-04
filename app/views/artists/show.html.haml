@@ -1,16 +1,16 @@
 .container.show_page
   .row.info_container
     .col-md-3
-      = image_tag "sample.jpg"
+      = image_tag @artist.artist_image.url
     .col-md-9
-      %h2.name アーティスト名
+      %h2.name= @artist.name
       .container.info
         .row
           .col-md-2.col-xs-6 ソング
-          .col-md-2.col-xs-6 2曲
+          .col-md-2.col-xs-6= "#{@artist_songs.count}曲"
         .row
           .col-md-2.col-xs-6 アルバム
-          .col-md-2.col-xs-6 1アルバム
+          .col-md-2.col-xs-6= "#{@artist.albums.count}アルバム"
         .row
           .col-md-2.col-xs-6 プレイリスト
           .col-md-2.col-xs-6 huga
@@ -20,22 +20,14 @@
         .row
           .col-md-2#follow-button
             = button_to("フォロー", 'javascript:void(0)', class: "btn btn-lg btn-default")
-  %table.table
-    %tr
-      %td= link_to 1,'javascript:void(0)'
-      %td 曲名
-      %td アルバム名
-      %td 曲長
-      %td
-        = link_to 'javascript:void(0)' do
-          = embedded_svg("un_favorite.svg")
-      %td 再生数
-    %tr
-      %td= link_to 2,'javascript:void(0)'
-      %td 曲名
-      %td アルバム名
-      %td 曲長
-      %td
-        = link_to 'javascript:void(0)' do
-          = embedded_svg("un_favorite.svg")
-      %td 再生数
+  %table.table(data-musics-id='#{@songs_id}')
+    - @artist_songs.each.with_index(1) do |song,i|
+      %tr{ id: song.id }
+        %td= link_to i,'javascript:void(0)'
+        %td= song.name
+        %td= link_to song.album.name, album_path(song.album)
+        %td= song_play_time(song.length)
+        %td
+          = link_to 'javascript:void(0)' do
+            = embedded_svg("un_favorite.svg")
+        %td= song.play_count

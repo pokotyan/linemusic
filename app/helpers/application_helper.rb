@@ -20,4 +20,10 @@ module ApplicationHelper
       str
     end
   end
+
+  #１曲の曲長。テーブルで使用
+  def song_play_time(song_length)
+    Time.at(song_length).utc.strftime("%M:%S")
+  end
+
 end
