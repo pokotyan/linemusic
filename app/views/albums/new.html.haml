@@ -1,0 +1,28 @@
+.center_form
+  %div
+    %h2 アルバムの投稿
+    = form_for @album do |f|
+      - if @album.errors.any?
+        .alert-danger
+          %h3 #{@album.errors.count} 件のエラーがあります
+          %ul
+            - @album.errors.full_messages.each do |msg|
+              %li #{msg}
+      .field
+        = f.label :name, "アルバム名"
+        %br/
+        = f.text_field :name, required: true
+      .field
+        = f.label :album_image, "ジャケット写真"
+        %br/
+        = f.file_field :album_image
+      .field
+        = f.label :release_date, "発売日"
+        %br/
+        = f.date_select :release_date
+      .field
+        = f.label :artist_id, "アーティストを選択"
+        %br/
+        = f.collection_select :artist_id, Artist.all.order("name"), :id, :name, prompt: '選択してください'
+      .field
+        = f.submit "send",data:{ disable_with:"投稿中…" }
