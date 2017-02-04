@@ -1,0 +1,20 @@
+.center_form
+  %div
+    %h2 曲の投稿
+    = form_for @song do |f|
+      - if @song.errors.any?
+        .alert-danger
+          %h3 #{@song.errors.count} 件のエラーがあります
+          %ul
+            - @song.errors.full_messages.each do |msg|
+              %li #{msg}
+      .field
+        = f.label :path, "mp3を投稿"
+        %br/
+        = f.file_field :path, required: true
+      .field
+        = f.label :album_id, "収録アルバムを選択"
+        %br/
+        = f.collection_select :album_id, Album.all.order("name"), :id, :artist_name_and_album_name, prompt: '選択してください'
+      .field
+        = f.submit "send",data:{ disable_with:"投稿中…" }
