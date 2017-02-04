@@ -1,0 +1,41 @@
+.container.show_page
+  .row.info_container
+    .col-md-3
+      = image_tag "sample.jpg"
+    .col-md-9
+      %h2.name アーティスト名
+      .container.info
+        .row
+          .col-md-2.col-xs-6 ソング
+          .col-md-2.col-xs-6 2曲
+        .row
+          .col-md-2.col-xs-6 アルバム
+          .col-md-2.col-xs-6 1アルバム
+        .row
+          .col-md-2.col-xs-6 プレイリスト
+          .col-md-2.col-xs-6 huga
+        .row
+          .col-md-2.col-xs-6 フォロー
+          .col-md-2.col-xs-6#follower-count 0人のフォロワー
+        .row
+          .col-md-2#follow-button
+            = button_to("フォロー", 'javascript:void(0)', class: "btn btn-lg btn-default")
+  %table.table
+    %tr
+      %td= link_to 1,'javascript:void(0)'
+      %td 曲名
+      %td アルバム名
+      %td 曲長
+      %td
+        = link_to 'javascript:void(0)' do
+          = embedded_svg("un_favorite.svg")
+      %td 再生数
+    %tr
+      %td= link_to 2,'javascript:void(0)'
+      %td 曲名
+      %td アルバム名
+      %td 曲長
+      %td
+        = link_to 'javascript:void(0)' do
+          = embedded_svg("un_favorite.svg")
+      %td 再生数
