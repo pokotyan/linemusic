@@ -21,7 +21,7 @@
       %h6
         = link_to 'javascript:void(0)' do
           = "曲名"
-      %h6= link_to "アーティスト名","#",style:"color: #969696;"
+      %h6= link_to "アーティスト名",artist_path(1),style:"color: #969696;"
     .thumb
       %figure
         =image_tag("sample.jpg",class:"thumb_image")
@@ -33,4 +33,4 @@
       %h6
         = link_to 'javascript:void(0)' do
           = "曲名"
-      %h6= link_to "アーティスト名","#",style:"color: #969696;"
+      %h6= link_to "アーティスト名",artist_path(1),style:"color: #969696;"
