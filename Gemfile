@@ -53,3 +53,4 @@ gem "erb2haml"
 gem 'devise'
 gem 'carrierwave'
 gem 'rmagick'
+gem 'mp3info'
