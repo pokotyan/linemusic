@@ -1,0 +1,13 @@
+.thumb
+  %figure
+    =image_tag(song.album.album_image.url,class:"thumb_image")
+    %figcaption
+      = link_to album_path(song.album) do
+        = image_tag(song.album.album_image.url,class:"thumb_image thumb_caption")
+      = link_to 'javascript:void(0)' do
+        = embedded_svg("play_button.svg",class:"play-trigger")
+  %h6
+    = link_to 'javascript:void(0)' do
+      /長い曲名はヘルパーで省略して表示させる
+      = omission_string(song.name)
+  %h6= link_to song.album.artist.name,artist_path(song.album.artist),style:"color: #969696;"

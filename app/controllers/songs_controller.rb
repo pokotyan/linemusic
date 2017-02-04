@@ -1,5 +1,6 @@
 class SongsController < ApplicationController
   def index
+    @songs = Song.includes(:album).all
   end
 
   def new
