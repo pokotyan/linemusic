@@ -1,36 +1,28 @@
 .container.show_page
   .row.info_container
     .col-md-3
-      = image_tag "sample.jpg"
+      = image_tag @album.album_image.url
     .col-md-9
-      %h2.name アルバム名
-      %h4.name アーティスト名
+      %h2.name= @album.name
+      %h4.name= link_to @album.artist.name,artist_path(@album.artist)
       .container.info
         .row
           .col-md-2.col-xs-6 ソング
-          .col-md-2.col-xs-6 2曲
+          .col-md-2.col-xs-6= "#{@album.songs.count}曲"
         .row
           .col-md-2.col-xs-6 再生時間
-          .col-md-2.col-xs-6 60分
+          .col-md-2.col-xs-6= album_play_time(@album)
         .row
           .col-md-2.col-xs-6 リリース日
-          .col-md-2.col-xs-6 huga
-  %table.table
-    %tr
-      %td= link_to 1,'javascript:void(0)'
-      %td 曲名
-      %td アーティスト名
-      %td 曲長
-      %td
-        = link_to 'javascript:void(0)' do
-          = embedded_svg("un_favorite.svg")
-      %td 再生数
-    %tr
-      %td= link_to 1,'javascript:void(0)'
-      %td 曲名
-      %td アーティスト名
-      %td 曲長
-      %td
-        = link_to 'javascript:void(0)' do
-          = embedded_svg("un_favorite.svg")
-      %td 再生数
+          .col-md-2.col-xs-6= @album.release_date
+  %table.table(data-musics-id='#{@songs_id}')
+    - @album.songs.each.with_index(1) do |song,i|
+      %tr{ id: song.id }
+        %td= link_to 1,'javascript:void(0)'
+        %td= song.name
+        %td= link_to song.album.artist.name, artist_path(song.album.artist)
+        %td= song_play_time(song.length)
+        %td
+          = link_to 'javascript:void(0)' do
+            = embedded_svg("un_favorite.svg")
+        %td= song.play_count
