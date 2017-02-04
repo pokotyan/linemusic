@@ -1,6 +1,8 @@
 class AlbumsController < ApplicationController
 
   def show
+    @album = Album.find(params[:id])
+    @songs_id = @album.songs.map{|s|s.id}
   end
 
   def new

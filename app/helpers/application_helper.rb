@@ -26,4 +26,9 @@ module ApplicationHelper
     Time.at(song_length).utc.strftime("%M:%S")
   end
 
+  #アルバム全体での曲長。秒数となってる曲長を分秒に変換
+  def album_play_time(album)
+    sec = album.songs.map{|s|s.length}.inject(:+)
+    Time.at(sec).utc.strftime("%X")
+  end
 end
