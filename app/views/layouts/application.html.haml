@@ -6,6 +6,25 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
+    :javascript
+      function play_music(id) {
+        $.ajax({
+          url: '/songs/play',
+          type: "get",
+          data: {music_id: id},
+          dataType: "text",
+        }).done(function(data) {
+          $('#song').attr('src', data);
+          document.getElementById("song").play();
+        }).fail(function(data) {
+          console.log("音楽の再生に失敗");
+        })
+        $.ajax({
+          url: '/songs/set_music_info',
+          type: "POST",
+          data: {music_id: id}
+        })
+      }
   %body
     = render "layouts/header"
     -if notice

@@ -1,0 +1,3 @@
+/プレイヤー上の曲名、アーティスト名とtitleタグの更新
+$('title').html("#{@song_name}- LINE MUSIC");
+$('#song_info').html("#{ j(render "layouts/song_info",song_name: @song_name, artist_name: @artist_name,song_url: @song_url ) }");
