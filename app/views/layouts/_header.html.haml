@@ -18,7 +18,7 @@
             %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
               /todo:ユーザー画像がsvgかそれ以外かで、embedded_svg使うかimage_tag使うかの選択
               = embedded_svg("default_user_image.svg",class:"header-user-image")
-              = "user_name"
+              = current_user.name
               %span.caret
             %ul.dropdown-menu
               %li
