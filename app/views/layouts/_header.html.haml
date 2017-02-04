@@ -29,6 +29,8 @@
               - if current_user.admin?
                 %li.divider
                 %li
+                  = link_to("ジャンルの投稿",new_genre_path)
+                %li
                   = link_to("アーティストの投稿","#")
                 %li
                   = link_to("アルバムの投稿","#")

@@ -1,0 +1,16 @@
+.center_form
+  %div
+    %h2 ジャンルの投稿
+    = form_for @genre do |f|
+      - if @genre.errors.any?
+        .alert-danger
+          %h3 #{@genre.errors.count} 件のエラーがあります
+          %ul
+            - @genre.errors.full_messages.each do |msg|
+              %li #{msg}
+      .field
+        = f.label :name, "ジャンル名"
+        %br/
+        = f.text_field :name, required: true
+      .actions
+        = f.submit "send",data:{ disable_with:"投稿中…" }
