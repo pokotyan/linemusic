@@ -46,11 +46,11 @@
       .collapse.navbar-collapse#header-menu
         %ul.nav.navbar-nav
           %li.active
-            = link_to "トップ", "#"
+            = link_to "トップ", root_path
           %li
             = link_to "テーマ&ジャンル", "#"
           %li
             = link_to "ランキング", "#"
-          /- if user_signed_in?
-          %li
-            = link_to "マイミュージック", "#"
+          - if user_signed_in?
+            %li
+              = link_to "マイミュージック", "#"
