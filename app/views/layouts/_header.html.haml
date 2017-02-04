@@ -13,27 +13,27 @@
               %i.glyphicon.glyphicon-search
       /右寄せの部分 http://studio-key.com/Bootstrap/VisualDecoration01.html からパクってきた
       %ul.nav.navbar-nav.navbar-right
-        /- if user_signed_in?
-        %li.dropdown
-          %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-            /todo:ユーザー画像がsvgかそれ以外かで、embedded_svg使うかimage_tag使うかの選択
-            = embedded_svg("default_user_image.svg",class:"header-user-image")
-            = "user_name"
-            %span.caret
-          %ul.dropdown-menu
-            %li
-              = link_to("ログアウト", "#", method: :delete)
-            /- if current_user.admin?
-            %li.divider
-            %li
-              = link_to("アーティストの投稿","#")
-            %li
-              = link_to("アルバムの投稿","#")
-            %li
-              = link_to("曲の投稿","#")
-            /- else
-            %li
-              = link_to("ログイン", "#")
+        - if user_signed_in?
+          %li.dropdown
+            %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+              /todo:ユーザー画像がsvgかそれ以外かで、embedded_svg使うかimage_tag使うかの選択
+              = embedded_svg("default_user_image.svg",class:"header-user-image")
+              = "user_name"
+              %span.caret
+            %ul.dropdown-menu
+              %li
+                = link_to("ログアウト", destroy_user_session_path, method: :delete)
+              - if current_user.admin?
+                %li.divider
+                %li
+                  = link_to("アーティストの投稿","#")
+                %li
+                  = link_to("アルバムの投稿","#")
+                %li
+                  = link_to("曲の投稿","#")
+        - else
+          %li
+            = link_to("ログイン", new_user_session_path)
     //2列目
     .navbar-header
       /幅を狭めた時にヘッダーのメニュー（#header-menu）がハンバーガーになるようにする。
