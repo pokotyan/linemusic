@@ -12,4 +12,12 @@ module ApplicationHelper
      doc.to_html.html_safe
   end
 
+  #長い文字列（曲名とか）を省略して表示させる
+  def omission_string(str)
+    if str.length > 22
+      str[0..21] + "…"
+    else
+      str
+    end
+  end
 end
