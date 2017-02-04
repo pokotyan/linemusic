@@ -1,0 +1,18 @@
+.container
+  .thumb-container.genre
+    %div
+      %h2= @genre.name
+    .genre_select_wrapper
+      %li.dropdown
+        %button.btn.btn-default.select-button.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+          = @genre.name
+          %span.caret
+        %ul.dropdown-menu
+          - Genre.all.each do |g|
+            /今見てるジャンルはジャンル変更の候補に表示しない
+            - next if g.name == @genre.name
+            %li
+              =link_to g.name,genre_path(g)
+  .thumb-container.flex-start
+    - @genre_songs.each do |song|
+      = render 'songs/song', song: song
