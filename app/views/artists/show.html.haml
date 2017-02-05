@@ -23,7 +23,7 @@
   %table.table(data-musics-id='#{@songs_id}')
     - @artist_songs.each.with_index(1) do |song,i|
       %tr{ id: song.id }
-        %td= link_to i,'javascript:void(0)'
+        %td= link_to i,'javascript:void(0)',onclick:"play_music(" + song.id.to_s + "); return false;"
         %td= song.name
         %td= link_to song.album.name, album_path(song.album)
         %td= song_play_time(song.length)
