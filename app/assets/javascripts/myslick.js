@@ -1,5 +1,5 @@
 //基本ここ（http://peacepopo.net/blog-entry-238.html）のコピペだけど、arrows:trueにして矢印は有効にすること
-$("document").ready(function(){
+$(document).on('ready pjax:success',function(){
   $('.myslider').slick({
     autoplay: true,
     autoplaySpeed: 2500,

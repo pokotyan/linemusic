@@ -3,8 +3,8 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title Linemusic
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
     = csrf_meta_tags
     :javascript
       function play_music(id) {
@@ -36,5 +36,6 @@
       .alert-info= notice
     -if alert
       .alert-danger= alert
-    = yield
+    %div(data-pjax-container)
+      = yield
     = render "layouts/footer"

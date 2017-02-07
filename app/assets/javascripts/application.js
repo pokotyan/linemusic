@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.pjax
 //= require bootstrap-sprockets
-//= require turbolinks
 //= require_tree .
 //= require slick/slick.min

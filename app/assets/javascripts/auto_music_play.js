@@ -1,4 +1,4 @@
-$(document).on('ready',function(){
+$(document).on('ready pjax:success',function(){
   //曲の連続再生の処理
   $(".tr-a-play").on('click', function(e) {
     var all_music_ids = $('table').data('musicsId');      //曲のid一覧の配列

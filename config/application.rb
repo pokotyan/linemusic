@@ -22,5 +22,8 @@ module Linemusic
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    #Rack::PjaxをRackのミドルウェアに積む
+    config.middleware.use Rack::Pjax
   end
 end
