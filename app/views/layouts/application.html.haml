@@ -10,7 +10,7 @@
       function play_music(id) {
 
         $("tr.active_song") && $("tr.active_song").removeClass("active_song");
-        var $tr = $(`#${id}`);
+        var $tr = $("#" + id);
         $tr.addClass("active_song");
 
         $.ajax({
