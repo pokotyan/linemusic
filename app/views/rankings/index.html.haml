@@ -4,7 +4,7 @@
     %h2.txt ランキング
   %table.table(data-musics-id='#{@songs_id}')
     - @songs.each.with_index(1) do |song,i|
-      %tr
+      %tr{ id: song.id }
         %td
           = i
         %td
