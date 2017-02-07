@@ -46,6 +46,9 @@ figure {
   position: relative;
   overflow: hidden;
   width: 142px;
+  &.figure_ranking{
+    width: 35px;
+  }
   //サムネイル画像
   .thumb_image{
     width: 100%;
