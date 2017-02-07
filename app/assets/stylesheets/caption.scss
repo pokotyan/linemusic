@@ -36,72 +36,74 @@
     }
   }
 }
-//各サムネイル間の上と左の余白
+//サムネイル
 .thumb{
-  margin-top: 29px;
+  margin-top: 29px; //各サムネイル間の上と左の余白
   margin-left: 26px;
-  //ジャンルページのサムネイル。子要素（.genre-center）を親要素(.thumb-genre)の横幅いっぱいに。http://appstars.jp/archive/14
-  &.thumb-genre{
-    width:140px;
-    height:140px;
-    background: #333333;
-    position:relative;
-    .genre_image{
-      width: 100%;
-      height: auto;
-    }
-    .genre-bottom{
-      display: -webkit-flex;
-      display: flex;
-      -webkit-align-items: center;     /* 縦方向中央揃え（Safari用） */
-      align-items: center;             /* 縦方向中央揃え */
-      -webkit-justify-content: center; /* 横方向中央揃え（Safari用） */
-      justify-content: center;         /* 横方向中央揃え */
-
-      color:white;
-      background: #38c322;
-      width: 100%;
-      position: absolute;
-      top: 75%;
-      bottom: 0;
-      right: 0;
-      left: 0;
-    }
-  }
 }
-
 //キャプション 参考 http://www.nxworld.net/tips/css-only-caption-effect.html#anchor01
 figure {
   position: relative;
   overflow: hidden;
   width: 142px;
-}
-figcaption {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,.6);
-  -webkit-transition: .3s;
-  transition: .3s;
-  opacity: 0;
+  &.figure_ranking{
+    width: 35px;
+  }
+  //サムネイル画像
+  .thumb_image{
+    width: 100%;
+    height: auto;
+    &.thumb_caption{
+      opacity: 0;
+    }
+  }
+  figcaption {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.6);
+    -webkit-transition: .3s;
+    transition: .3s;
+    opacity: 0;
+  }
 }
 figure:hover figcaption {
   opacity: 1;
 }
+//ジャンルページのサムネイル。子要素（.genre-center）を親要素(.thumb-genre)の横幅いっぱいに。http://appstars.jp/archive/14
+.thumb-genre{
+  margin-top: 29px; //各サムネイル間の上と左の余白
+  margin-left: 26px;
 
+  width:140px;
+  height:140px;
+  background: #333333;
+  position:relative;
+  .genre_image{
+    width: 100%;
+    height: auto;
+  }
+  .genre-bottom{
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;     /* 縦方向中央揃え（Safari用） */
+    align-items: center;             /* 縦方向中央揃え */
+    -webkit-justify-content: center; /* 横方向中央揃え（Safari用） */
+    justify-content: center;         /* 横方向中央揃え */
 
-//サムネイル画像
-.thumb_image{
-  width: 100%;
-  height: auto;
-  &.thumb_caption{
-    opacity: 0;
+    color:white;
+    background: #38c322;
+    width: 100%;
+    position: absolute;
+    top: 75%;
+    bottom: 0;
+    right: 0;
+    left: 0;
   }
 }
-
 //画像（再生ボタン）の縦横中央寄せ
 figcaption {
   display:table-cell;
@@ -119,24 +121,23 @@ figcaption {
   margin: auto;
 }
 
-
 //再生ボタンホバー時に拡大
 .play-trigger{
-transition: all 0.2s linear; //開く速さ
+  transition: all 0.2s linear; //開く速さ
 
-//再生ボタンのデフォルトカラー
-fill: white;
-stroke: white;
+  //再生ボタンのデフォルトカラー
+  fill: white;
+  stroke: white;
 }
 .play-trigger:hover {
--webkit-transform: scale(2.4);
--moz-transform: scale(2.4);
--o-transform: scale(2.4);
--ms-transform: scale(2.4);
-transform: scale(1.3); //拡大倍率
-z-index: 9999;
+  -webkit-transform: scale(2.4);
+  -moz-transform: scale(2.4);
+  -o-transform: scale(2.4);
+  -ms-transform: scale(2.4);
+  transform: scale(1.3); //拡大倍率
+  z-index: 9999;
 
-//再生ボタンのホバー時のカラー
-fill: green;
-stroke: green;
+  //再生ボタンのホバー時のカラー
+  fill: green;
+  stroke: green;
 }

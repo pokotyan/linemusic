@@ -1,0 +1,23 @@
+.container
+  .raking-title
+    = embedded_svg("cup.svg")
+    %h2.txt ランキング
+  %table.table(data-musics-id='#{@songs_id}')
+    - @songs.each.with_index(1) do |song,i|
+      %tr{ id: song.id }
+        %td
+          = i
+        %td
+          %figure.figure_ranking
+            =image_tag(song.album.album_image.url,class:"thumb_image")
+            %figcaption
+              = link_to album_path(song.album) do
+                = image_tag(song.album.album_image.url,class:"thumb_image thumb_caption")
+              = link_to 'javascript:void(0)',onclick:"play_music(" + song.id.to_s + "); return false;", class:"tr-a-play", data: {song_id: song.id} do
+                = embedded_svg("play_button_mini.svg",class:"play-trigger")
+        %td= song.name
+        %td= link_to song.album.artist.name, artist_path(song.album.artist)
+        %td= song_play_time(song.length)
+        %td{ id: "fav_song_#{song.id}" }
+          = embedded_svg("un_favorite.svg")
+        %td= song.play_count

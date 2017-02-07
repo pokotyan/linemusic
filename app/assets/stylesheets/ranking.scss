@@ -1,0 +1,14 @@
+.raking-title{
+  margin-top: 50px;
+  margin-bottom: 30px;
+
+  display: flex;
+  flex-direction: row;
+  .txt{
+    margin: 0;
+  }
+}
+.active_song{
+  background:#EEEEEE;
+  border-bottom: 3px solid #38c322;
+}
