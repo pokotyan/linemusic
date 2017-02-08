@@ -53,6 +53,7 @@ figure {
   .thumb_image{
     width: 100%;
     height: auto;
+    border: 1px solid rgba(0,0,0,.1);
     &.thumb_caption{
       opacity: 0;
     }
