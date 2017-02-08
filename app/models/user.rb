@@ -5,4 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   mount_uploader :user_image, UserImageUploader
+
+  has_many :follows, dependent: :destroy #中間テーブル
+  has_many :follow_artists, through: :follows, source: :artist
 end
