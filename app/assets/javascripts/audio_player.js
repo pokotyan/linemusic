@@ -42,10 +42,16 @@ $(document).on('ready pjax:success',function(){
 
   //音量の上げ下げ
   $(".glyphicon-menu-up").on("click",function(){
-    audio.volume = audio.volume + 0.1;
+    $(".glyphicon-menu-up").off('click');                //pjax遷移時はイベントが多重登録されるのでクリックされるたびに初期化する
+    $(".glyphicon-menu-up").on("click",function(){       //初期化をしないと 0.1 の上下操作が加算されていき、一度のクリックで大幅に音量が変わるようになる。
+      audio.volume = audio.volume + 0.1;
+    });
   });
   $(".glyphicon-menu-down").on("click",function(){
-    audio.volume = audio.volume - 0.1;
+    $(".glyphicon-menu-down").off('click');
+    $(".glyphicon-menu-down").on("click",function(){
+      audio.volume = audio.volume - 0.1;
+    });
   });
 
   //ミュート
