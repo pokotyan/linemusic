@@ -1,6 +1,25 @@
 %footer.footer
-  .flex-container
-    .flex-container.column
+  .audio_player
+    = audio_tag('', id:"song", :autoplay => false, :controls => true, class:"blind")
+    .player_button_wrapper
+      /ふたつのボタン（再生と一時停止）はblindクラスをjsで付け替えて表示、非表示を制御する。初期値は再生ボタンを表示。
+      = link_to 'javascript:void(0)' do
+        = embedded_svg("play_button.svg",class:"player_button play")
+      = link_to 'javascript:void(0)' do
+        = embedded_svg("pause_button.svg",class:"player_button pause blind")
+    .flex-container_column
       #song_info
         = render 'layouts/song_info'
-      = audio_tag('', id:"song", :autoplay => false, :controls => true)
+      .progress_wrapper
+        .progress
+          .progress-bar.progress-bar-striped.active{:role => "progressbar", :style => "width: 0%;"}
+        .display_time
+          %span#current_time 00:00
+          %span#duration 00:00
+    .flex-container_column
+      %a.glyphicon.glyphicon-menu-up
+      %a.glyphicon.glyphicon-menu-down
+    .controll_wrapper
+      = embedded_svg("mute.svg",class:"controll_svg mute")
+    .controll_wrapper
+      = embedded_svg("repeat.svg",class:"controll_svg repeat")
