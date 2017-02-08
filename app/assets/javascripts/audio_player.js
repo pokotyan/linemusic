@@ -19,4 +19,24 @@ $(document).on('ready pjax:success',function(){
       $('.progress-bar').css({'width':percent});         //現在の再生位置（%）をプログレスバーのwidthに入れてプログレスバーを進める
     }, false);
   });
+
+  //再生ボタン、一時停止ボタンの表示切り替え
+  $(".play-trigger,.tr-a-play").click(function(){        //play_music関数を実行し「曲を新たに読み込んで再生」したら
+    $(".play").addClass("blind");                        //ボタンの表示は一時停止にする
+    $(".pause").removeClass("blind");
+  });
+  audio.addEventListener("play", function() {            //曲が再生中に
+    $(".player_button").click(function(){                //プレイヤーのボタン（一時停止ボタン）押したら
+      $(".play").removeClass("blind");                   //ボタン表示は「再生ボタン」にする
+      $(".pause").addClass("blind");
+      audio.pause();                                     //曲を一時停止
+    });
+  });
+  audio.addEventListener("pause", function() {           //曲が一時停止中に
+    $(".player_button").click(function(){                //プレイヤーのボタン（再生ボタン）押したら
+      $(".play").addClass("blind");                      //ボタン表示は「一時停止ボタン」にする
+      $(".pause").removeClass("blind");
+      audio.play();                                      //曲を再開
+    });
+  });
 });

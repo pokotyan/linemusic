@@ -4,9 +4,9 @@
     .player_button_wrapper
       /ふたつのボタン（再生と一時停止）はblindクラスをjsで付け替えて表示、非表示を制御する。初期値は再生ボタンを表示。
       = link_to 'javascript:void(0)' do
-        = embedded_svg("play_button.svg",class:"player_button")
+        = embedded_svg("play_button.svg",class:"player_button play")
       = link_to 'javascript:void(0)' do
-        = embedded_svg("pause_button.svg",class:"player_button blind")
+        = embedded_svg("pause_button.svg",class:"player_button pause blind")
     .flex-container_column
       #song_info
         = render 'layouts/song_info'
