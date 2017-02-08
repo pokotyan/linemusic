@@ -47,4 +47,20 @@ $(document).on('ready pjax:success',function(){
   $(".glyphicon-menu-down").on("click",function(){
     audio.volume = audio.volume - 0.1;
   });
+
+  //ミュート
+  $(".mute").on("click",function(){
+    $(".mute").off('click');                               //pjax遷移時はイベントが多重登録されるのでクリックされるたびに初期化する
+    $(".mute").on("click",function(){
+      if(audio.muted){                                     //ミュートしてるなら
+        audio.muted = false;                               //ミュート解除して
+        $(this).css("fill","white");                       //アイコンの色を白にする
+        $(this).css("stroke","white");
+      }else{                                               //ミュートしてないなら
+        audio.muted = true;                                //ミュートとして
+        $(this).css("fill","green");                       //アイコンの色を緑にする
+        $(this).css("stroke","green");
+      };
+    });
+  });
 });
