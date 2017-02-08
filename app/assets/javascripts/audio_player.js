@@ -39,4 +39,12 @@ $(document).on('ready pjax:success',function(){
       audio.play();                                      //曲を再開
     });
   });
+
+  //音量の上げ下げ
+  $(".glyphicon-menu-up").on("click",function(){
+    audio.volume = audio.volume + 0.1;
+  });
+  $(".glyphicon-menu-down").on("click",function(){
+    audio.volume = audio.volume - 0.1;
+  });
 });
