@@ -1,22 +1,22 @@
 //秒を分秒へ変換
 function to_ms(s){
-    m=""+(s%3600/600|0)+(s%3600/60%10|0)
-    s=""+(s%60/10|0)+(s%60%10)
-    return m+":"+s;
+  m=""+(s%3600/600|0)+(s%3600/60%10|0)
+  s=""+(s%60/10|0)+(s%60%10)
+  return m+":"+s;
 };
-//loadedmetadataが発火してからduration（曲長）を取得すること。
-//そうしないとdurationがNaNになり、以降の計算もできなくなり結果、プログレスバーが動かなくなる。
 $(document).on('ready pjax:success',function(){
-    var audio = document.getElementById('song');
-    //loadedmetadata ブラウザがメディアリソースの長さと寸法を判定した場合に発生。つまり、曲を読み込むたびに発生する。
-    audio.addEventListener('loadedmetadata', function() {
-    var total = Math.round(audio.duration);                //曲長（秒）
-        $("#duration").text(to_ms(total));                 //曲長（分秒）を#durationのテキストに入れる
-        audio.addEventListener("timeupdate", function() {  //現在の再生位置が変更された時(曲が再生されてるとき)
-            var current = Math.round(audio.currentTime);   //現在の再生位置（秒）
-            $("#current_time").text(to_ms(current));       //現在の再生位置（分秒）を#current_timeのテキストに入れる
-            var percent = (current / total * 100) + '%';   //現在の再生位置（%）
-            $('.progress-bar').css({'width':percent});     //現在の再生位置（%）をプログレスバーのwidthに入れてプログレスバーを進める
-        }, false);
-    });
+  var audio = document.getElementById('song');
+
+  //loadedmetadataが発火してからduration（曲長）を取得すること。
+  //そうしないとdurationがNaNになり、以降の計算もできなくなり結果、プログレスバーが動かなくなる。
+  audio.addEventListener('loadedmetadata', function() {  //loadedmetadata 曲の長さを判定した場合に発生。曲を読み込むたびに発生する。
+  var total = Math.round(audio.duration);                //曲長（秒）
+    $("#duration").text(to_ms(total));                   //曲長（分秒）を#durationのテキストに入れる
+    audio.addEventListener("timeupdate", function() {    //現在の再生位置が変更された時(曲が再生されてるとき)
+      var current = Math.round(audio.currentTime);       //現在の再生位置（秒）
+      $("#current_time").text(to_ms(current));           //現在の再生位置（分秒）を#current_timeのテキストに入れる
+      var percent = (current / total * 100) + '%';       //現在の再生位置（%）
+      $('.progress-bar').css({'width':percent});         //現在の再生位置（%）をプログレスバーのwidthに入れてプログレスバーを進める
+    }, false);
+  });
 });
