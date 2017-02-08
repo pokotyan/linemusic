@@ -22,7 +22,10 @@
         %td= song.name
         %td= link_to song.album.artist.name, artist_path(song.album.artist)
         %td= song_play_time(song.length)
-        %td
-          = link_to 'javascript:void(0)' do
-            = embedded_svg("un_favorite.svg")
+        %td{ id: "fav_song_#{song.id}" }
+          -if user_signed_in?
+            = render "fav_songs/like_button", song:song
+          -else
+            = link_to 'javascript:void(0)' do
+              = embedded_svg("un_favorite.svg")
         %td= song.play_count

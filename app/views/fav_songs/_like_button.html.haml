@@ -1,0 +1,6 @@
+-if current_user.f_songs.find_by(id:song.id)
+  =link_to fav_song_path(song), method: :delete, remote: true do
+    = embedded_svg("favorite.svg")
+-else
+  =link_to fav_songs_path(song), method: :post, remote: true do
+    = embedded_svg("un_favorite.svg")
