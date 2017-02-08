@@ -69,4 +69,22 @@ $(document).on('ready pjax:success',function(){
       };
     });
   });
+
+  //１曲リピート
+  $(".repeat").on("click",function(){
+    $(".repeat").off('click');                             //pjax遷移時はイベントが多重登録されるのでクリックされるたびに初期化する
+    $(".repeat").on("click",function(){
+      var color = $(this).css("fill");
+      if(color == "rgb(255, 255, 255)"){                   //アイコンの色が白だったら
+        $("#song").attr({loop: "true"});                   //ループを有効にして
+        $(this).css("fill","green");                       //アイコンの色を緑にする
+        $(this).css("stroke","green");
+      }else{                                               //アイコンの色が白以外（緑）だったら
+        $("#song").removeAttr("loop");                     //ループを無効にして
+        $(this).css("fill","white");                       //アイコンの色を白にする
+        $(this).css("stroke","white");
+      };
+    });
+  });
+
 });
