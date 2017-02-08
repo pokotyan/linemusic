@@ -1,0 +1,2 @@
+$('#follower-count').text("#{@artist.follower.count}人のフォロワー");
+$('#follow-button').html("#{ j(render 'follows/follow_button', artist: @artist ) }");

@@ -19,7 +19,7 @@
           .col-md-2.col-xs-6#follower-count 0人のフォロワー
         .row
           .col-md-2#follow-button
-            = button_to("フォロー", 'javascript:void(0)', class: "btn btn-lg btn-default")
+            = render 'follows/follow_button', artist: @artist
   %table.table(data-musics-id='#{@songs_id}')
     - @artist_songs.each.with_index(1) do |song,i|
       %tr{ id: song.id }
