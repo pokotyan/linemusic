@@ -1,0 +1,6 @@
+-if !user_signed_in?
+  = button_to "フォロー", 'javascript:void(0)', class: "btn btn-lg btn-default"
+-elsif current_user.follows.find_by(artist_id: artist.id)
+  = button_to "フォロー中",follow_path(artist), method: :delete, remote: true,class:"btn btn-lg btn-default"
+-else
+  = button_to "フォロー", follows_path(artist), method: :post, remote: true, class: "btn btn-lg btn-default"

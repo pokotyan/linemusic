@@ -10,5 +10,6 @@ Rails.application.routes.draw do
       post 'set_music_info'
     end
   end
+  resources :follows, only: [:create,:destroy]
   root 'songs#index'
 end
