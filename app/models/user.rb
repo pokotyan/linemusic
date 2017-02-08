@@ -8,4 +8,7 @@ class User < ActiveRecord::Base
 
   has_many :follows, dependent: :destroy #中間テーブル
   has_many :follow_artists, through: :follows, source: :artist
+
+  has_many :fav_songs, dependent: :destroy
+  has_many :f_songs, through: :fav_songs, source: :song
 end
