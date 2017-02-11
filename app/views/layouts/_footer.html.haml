@@ -1,6 +1,9 @@
 %footer.footer
   .audio_player
     = audio_tag('', id:"song", :autoplay => false, :controls => true, class:"blind")
+    .album_image_wrapper
+      = link_to 'javascript:void(0)', id:"footer_album_image" do
+        = image_tag("defaul_footer_image.png")
     .player_button_wrapper
       /ふたつのボタン（再生と一時停止）はblindクラスをjsで付け替えて表示、非表示を制御する。初期値は再生ボタンを表示。
       = link_to 'javascript:void(0)' do
