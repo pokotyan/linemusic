@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170208192702) do
+ActiveRecord::Schema.define(version: 20170211022355) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "name",         limit: 255
@@ -33,6 +33,16 @@ ActiveRecord::Schema.define(version: 20170208192702) do
   end
 
   add_index "artists", ["genre_id"], name: "index_artists_on_genre_id", using: :btree
+
+  create_table "fav_albums", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "album_id",   limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "fav_albums", ["album_id"], name: "index_fav_albums_on_album_id", using: :btree
+  add_index "fav_albums", ["user_id"], name: "index_fav_albums_on_user_id", using: :btree
 
   create_table "fav_songs", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -96,6 +106,8 @@ ActiveRecord::Schema.define(version: 20170208192702) do
 
   add_foreign_key "albums", "artists"
   add_foreign_key "artists", "genres"
+  add_foreign_key "fav_albums", "albums"
+  add_foreign_key "fav_albums", "users"
   add_foreign_key "fav_songs", "songs"
   add_foreign_key "fav_songs", "users"
   add_foreign_key "follows", "artists"

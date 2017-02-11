@@ -11,4 +11,7 @@ class User < ActiveRecord::Base
 
   has_many :fav_songs, dependent: :destroy
   has_many :f_songs, through: :fav_songs, source: :song
+
+  has_many :fav_albums, dependent: :destroy
+  has_many :f_albums, through: :fav_albums, source: :album
 end
