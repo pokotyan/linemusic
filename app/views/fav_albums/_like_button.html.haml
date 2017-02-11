@@ -1,5 +1,5 @@
 -if !user_signed_in?
-  = button_to "お気に入り", 'javascript:void(0)', class: "btn btn-lg btn-default"
+  = button_to "お気に入り", 'javascript:void(0)', class: "btn btn-lg btn-default",data:{target:"#login_modal",toggle:"modal"}
 -elsif current_user.f_albums.find_by(id:album.id)
   = button_to "お気に入り中", fav_album_path(album), method: :delete, remote: true, class: "btn btn-lg btn-default"
 -else
