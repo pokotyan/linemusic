@@ -1,0 +1,53 @@
+.container
+  .row.my_info_container
+    .col-md-2
+      - if @user.user_image.url[-3,3] == "svg"
+        = embedded_svg(@user.user_image.url,class:"my_image")
+      - else
+        = image_tag(@user.user_image.url,class:"my_image")
+    .col-md-10
+      %h2= @user.name
+      .container.my_info
+        .row
+          .col-md-2.col-xs-6 マイプレイリスト
+          .col-md-2.col-xs-6 2個
+        .row
+          .col-md-2.col-xs-6 お気に入りソング
+          .col-md-2.col-xs-6= "#{@user.fav_songs.count}曲"
+        .row
+          .col-md-2.col-xs-6 お気に入りアルバム
+          .col-md-2.col-xs-6= "#{@user.fav_albums.count}枚"
+        .row
+          .col-md-2.col-xs-6 マイアーティスト
+          .col-md-2.col-xs-6= "#{@user.follows.count}組"
+  %ul.nav.nav-tabs
+    %li.active
+      =link_to "マイプレイリスト","#myplaylist", data: { toggle: 'tab' }
+    %li
+      =link_to "お気に入りプレイリスト","#favplaylist", data: { toggle: 'tab' }
+    %li
+      =link_to "お気に入りソング","#favsong", data: { toggle: 'tab' }
+    %li
+      =link_to "お気に入りアルバム","#favalbum", data: { toggle: 'tab' }
+    %li
+      =link_to "マイアーティスト","#myartist", data: { toggle: 'tab' }
+  /マイプレイリスト
+  .tab-content
+    .tab-pane.active#myplaylist
+      マイプレイリスト
+  /お気に入りプレイリスト
+  .tab-content
+    .tab-pane#favplaylist
+      お気に入りプレイリスト
+  /お気に入りソング
+  .tab-content
+    .tab-pane#favsong
+      お気に入りソング
+  /お気に入りアルバム
+  .tab-content
+    .tab-pane#favalbum
+      お気に入りアルバム
+  /マイアーティスト
+  .tab-content
+    .tab-pane#myartist
+      マイアーティスト
