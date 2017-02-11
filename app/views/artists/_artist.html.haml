@@ -5,4 +5,4 @@
       %figcaption
         = image_tag(artist.artist_image.url,class:"thumb_image thumb_caption")
   %h6= link_to artist.name, artist_path(artist)
-  %h6.follow_count= artist.follower.count.to_s + "フォロー"
+  %h6.gray= artist.follower.count.to_s + "フォロー"

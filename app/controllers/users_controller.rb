@@ -8,5 +8,8 @@ class UsersController < ApplicationController
 
     #マイアーティスト
     @artists = @user.follow_artists
+
+    #お気に入りアルバム
+    @albums = @user.f_albums
   end
 end
