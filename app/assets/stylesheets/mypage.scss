@@ -35,4 +35,10 @@
   .table > tbody > tr:first-child > td{  //テーブルの一番上のtrのみborder-topをなくす
     border-top: none;
   }
+  .thumb-container{
+    justify-content: flex-start;
+    .thumb{
+      .follow_count{color: #969696;}
+    }
+  }
 }
