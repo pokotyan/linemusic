@@ -11,3 +11,19 @@
 .container
   .thumb-container
     = render @songs
+/ チケットモーダル トリガー
+%a#ticket_modal_trigger{"data-target" => "#ticket_modal", "data-toggle" => "modal"}
+/ チケットモーダル 内容
+#ticket_modal.modal.fade{"aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog{:role => "document"}
+    .modal-content
+      .modal-header{style:"border:none;"}
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} ×
+      .modal-body{style:"text-align: center;"}
+        = embedded_svg("ticket.svg")
+        %h2 MUSIC FREE
+        まだログインしたことがないユーザに<br>30日間の無料チケットをプレゼント!
+      .modal-footer
+        = link_to 'javascript:void(0)' do
+          %button.btn.btn-primary.btn-lg.btn_green{"data-dismiss" => "modal",:style => "margin-left: 0;"} チケットを確認

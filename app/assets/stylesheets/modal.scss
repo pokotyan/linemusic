@@ -1,0 +1,22 @@
+.modal-content{
+  border-radius: 0;
+  border-top: 3px solid #38c322;
+  .modal-header{
+    border:none;
+  }
+  .modal-body{
+    text-align: center;
+    h2{
+      color: #38c322;
+    }
+  }
+  .modal-footer{
+    border: none;
+    text-align: center;
+    .btn_green{
+      border-radius: 0px;
+      border: none;
+      background-color: #38c322;
+    }
+  }
+}
