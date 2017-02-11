@@ -6,6 +6,7 @@ function to_ms(s){
 };
 $(document).on('ready pjax:success',function(){
   var audio = document.getElementById('song');
+  audio.volume = 0.1;                                    //ボリュームの初期値（0.0 〜 1.0）
 
   //loadedmetadataが発火してからduration（曲長）を取得すること。
   //そうしないとdurationがNaNになり、以降の計算もできなくなり結果、プログレスバーが動かなくなる。
