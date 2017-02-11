@@ -13,10 +13,20 @@ $(document).on('ready pjax:success',function(){
   var total = Math.round(audio.duration);                //曲長（秒）
     $("#duration").text(to_ms(total));                   //曲長（分秒）を#durationのテキストに入れる
     audio.addEventListener("timeupdate", function() {    //現在の再生位置が変更された時(曲が再生されてるとき)
+      //プログレスバーの表示更新処理
       var current = Math.round(audio.currentTime);       //現在の再生位置（秒）
       $("#current_time").text(to_ms(current));           //現在の再生位置（分秒）を#current_timeのテキストに入れる
       var percent = (current / total * 100) + '%';       //現在の再生位置（%）
       $('.progress-bar').css({'width':percent});         //現在の再生位置（%）をプログレスバーのwidthに入れてプログレスバーを進める
+
+      //曲のシーク処理
+      $(".progress").on("click",function(e){
+        $('.progress').off('click');
+        $(".progress").on("click",function(e){           //プログレスバーがクリックされたら
+          var click_time = total * (e.offsetX/400);      //クリックされた位置の曲の時間を計算し、click_timeに代入(400は.progressのwidth)
+          audio.currentTime = click_time;                //click_timeを現在の再生時間に代入
+        });
+      });
     }, false);
   });
 

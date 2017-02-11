@@ -15,8 +15,9 @@
         %strong 曲名
         = link_to "アーティスト名",'javascript:void(0)'
       .progress_wrapper
-        .progress
-          .progress-bar.progress-bar-striped.active{:role => "progressbar", :style => "width: 0%;"}
+        = link_to 'javascript:void(0)' do
+          .progress
+            .progress-bar.progress-bar-striped.active{:role => "progressbar", :style => "width: 0%;"}
         .display_time
           %span#current_time 00:00
           %span#duration 00:00
