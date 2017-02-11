@@ -17,7 +17,7 @@
           .col-md-2.col-xs-6= @album.release_date
         .row
           .col-md-2#album_like_button
-            = button_to "お気に入り", 'javascript:void(0)', class: "btn btn-lg btn-default"
+            = render 'fav_albums/like_button', album: @album
   %table.table(data-musics-id='#{@songs_id}')
     - @album.songs.each.with_index(1) do |song,i|
       %tr{ id: song.id }
