@@ -30,3 +30,9 @@
     }
   }
 }
+.tab-pane{
+  margin-top: 30px;
+  .table > tbody > tr:first-child > td{  //テーブルの一番上のtrのみborder-topをなくす
+    border-top: none;
+  }
+}
