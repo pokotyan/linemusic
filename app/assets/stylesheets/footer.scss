@@ -15,6 +15,15 @@
     justify-content: center;
     align-items: center;
     height:100%;
+    .album_image_wrapper{
+      height:100%;
+      width:70px;
+      margin-right:20px;
+      img{
+        width: 100%;
+        height: auto;
+      }
+    }
     .player_button_wrapper{
       display: flex;
       align-items: center;
@@ -38,6 +47,14 @@
       align-items: flex-start;
       flex-direction: column;
       margin-right:20px;
+      #song_info{
+        strong{
+          color: white;
+        }
+        a{
+          color: #969696;
+        }
+      }
       .progress_wrapper{
         display: flex;
         justify-content: center;

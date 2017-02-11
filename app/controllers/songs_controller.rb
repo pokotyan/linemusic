@@ -26,11 +26,21 @@ class SongsController < ApplicationController
 
   def set_music_info
     song = Song.find(params[:music_id])
-    @song_name = song.name + " "           #表示するときに曲名とアーティスト名に空白を設けたいのでここで設定しとく
-    @artist_name = song.album.artist.name
+    #set_music_info.js.hamlで曲名やアーティスト名の表示を更新しているが
+    #名前に " や ' がに含まれていると文字列リテラルと解釈されて表示更新がされなくなるため、事前に置換しておく
+    @song_name = replace_quotation(song.name) + " "
+
+    @artist = song.album.artist
+    @artist_name = replace_quotation(@artist.name)
+
+    @album = song.album
   end
 
   private
+
+  def replace_quotation(name)
+    name.gsub(/\"|\'/, " ")
+  end
 
   def song_params
     params.require(:song).permit(

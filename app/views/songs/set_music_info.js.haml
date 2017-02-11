@@ -1,3 +1,10 @@
 /プレイヤー上の曲名、アーティスト名とtitleタグの更新
 $('title').html("#{@song_name}- LINE MUSIC");
-$('#song_info').html("#{ j(render "layouts/song_info",song_name: @song_name, artist_name: @artist_name,song_url: @song_url ) }");
+/フッターの曲名の更新
+$('#song_info > strong').text('#{@song_name}');
+/フッターのアーティスト名の更新とリンク先の更新
+$('#song_info a').attr('href', "/artists/" + '#{@artist.id}');
+$('#song_info a').text('#{@artist_name}');
+/フッターのアルバムイメージの更新とリンク先の更新
+$('#footer_album_image').attr('href', "/albums/" + '#{@album.id}');
+$('#footer_album_image > img').attr('src', '#{@album.album_image.url}');

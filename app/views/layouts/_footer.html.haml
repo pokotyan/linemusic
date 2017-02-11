@@ -1,6 +1,9 @@
 %footer.footer
   .audio_player
     = audio_tag('', id:"song", :autoplay => false, :controls => true, class:"blind")
+    .album_image_wrapper
+      = link_to 'javascript:void(0)', id:"footer_album_image" do
+        = image_tag("defaul_footer_image.png")
     .player_button_wrapper
       /ふたつのボタン（再生と一時停止）はblindクラスをjsで付け替えて表示、非表示を制御する。初期値は再生ボタンを表示。
       = link_to 'javascript:void(0)' do
@@ -8,11 +11,13 @@
       = link_to 'javascript:void(0)' do
         = embedded_svg("pause_button.svg",class:"player_button pause blind")
     .flex-container_column
-      #song_info
-        = render 'layouts/song_info'
+      %p#song_info
+        %strong 曲名
+        = link_to "アーティスト名",'javascript:void(0)'
       .progress_wrapper
-        .progress
-          .progress-bar.progress-bar-striped.active{:role => "progressbar", :style => "width: 0%;"}
+        = link_to 'javascript:void(0)' do
+          .progress
+            .progress-bar.progress-bar-striped.active{:role => "progressbar", :style => "width: 0%;"}
         .display_time
           %span#current_time 00:00
           %span#duration 00:00
