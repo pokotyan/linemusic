@@ -28,6 +28,7 @@ class SongsController < ApplicationController
     song = Song.find(params[:music_id])
     @song_name = song.name + " "           #表示するときに曲名とアーティスト名に空白を設けたいのでここで設定しとく
     @artist_name = song.album.artist.name
+    @album = song.album
   end
 
   private
