@@ -1,0 +1,15 @@
+#login_modal.modal.fade{"aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog{:role => "document"}
+    .modal-content
+      .modal-header
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} ×
+      .modal-body{:style => "display: flex; justify-content: center;"}
+        .content
+          %h4 ログインが必要な機能です。
+          %h4 ログインを行ってください。
+      .modal-footer
+        .modal_btn_wrapper
+          %button.btn.btn-primary.btn-lg.gray{"data-dismiss" => "modal"} キャンセル
+          = link_to new_user_session_path do
+            %button.btn.btn-primary.btn-lg.green.modal_login_btn{:style => "margin-left: 0;"} ログイン

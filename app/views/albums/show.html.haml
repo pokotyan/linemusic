@@ -29,6 +29,6 @@
           -if user_signed_in?
             = render "fav_songs/like_button", song:song
           -else
-            = link_to 'javascript:void(0)' do
+            = link_to 'javascript:void(0)',data:{target:"#login_modal",toggle:"modal"} do
               = embedded_svg("un_favorite.svg")
         %td= song.play_count
