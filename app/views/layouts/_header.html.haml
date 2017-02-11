@@ -58,4 +58,4 @@
             = link_to "ランキング", rankings_path
           - if user_signed_in?
             %li
-              = link_to "マイミュージック", "#"
+              = link_to "マイミュージック", user_path(current_user)

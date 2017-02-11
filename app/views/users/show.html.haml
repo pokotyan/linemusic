@@ -1,0 +1,75 @@
+.container
+  .row.my_info_container
+    .col-md-2
+      - if @user.user_image.url[-3,3] == "svg"
+        = embedded_svg(@user.user_image.url,class:"my_image")
+      - else
+        = image_tag(@user.user_image.url,class:"my_image")
+    .col-md-10
+      %h2= @user.name
+      .container.my_info
+        .row
+          .col-md-2.col-xs-6 マイプレイリスト
+          .col-md-2.col-xs-6 2個
+        .row
+          .col-md-2.col-xs-6 お気に入りソング
+          .col-md-2.col-xs-6= "#{@user.fav_songs.count}曲"
+        .row
+          .col-md-2.col-xs-6 お気に入りアルバム
+          .col-md-2.col-xs-6= "#{@user.fav_albums.count}枚"
+        .row
+          .col-md-2.col-xs-6 マイアーティスト
+          .col-md-2.col-xs-6= "#{@user.follows.count}組"
+  %ul.nav.nav-tabs
+    %li.active
+      =link_to "マイプレイリスト","#myplaylist", data: { toggle: 'tab' }
+    %li
+      =link_to "お気に入りプレイリスト","#favplaylist", data: { toggle: 'tab' }
+    %li
+      =link_to "お気に入りソング","#favsong", data: { toggle: 'tab' }
+    %li
+      =link_to "お気に入りアルバム","#favalbum", data: { toggle: 'tab' }
+    %li
+      =link_to "マイアーティスト","#myartist", data: { toggle: 'tab' }
+  /マイプレイリスト
+  .tab-content
+    .tab-pane.active#myplaylist
+      マイプレイリスト
+  /お気に入りプレイリスト
+  .tab-content
+    .tab-pane#favplaylist
+      お気に入りプレイリスト
+  /お気に入りソング
+  .tab-content
+    .tab-pane#favsong
+      %table.table(data-musics-id='#{@songs_id}')
+        - @songs.each.with_index(1) do |song,i|
+          %tr{ id: song.id }
+            %td
+              %figure.figure_ranking
+                =image_tag(song.album.album_image.url,class:"thumb_image")
+                %figcaption
+                  = link_to album_path(song.album) do
+                    = image_tag(song.album.album_image.url,class:"thumb_image thumb_caption")
+                  = link_to 'javascript:void(0)',onclick:"play_music(" + song.id.to_s + "); return false;", class:"tr-a-play", data: {song_id: song.id} do
+                    = embedded_svg("play_button_mini.svg",class:"play-trigger")
+            %td= song.name
+            %td= link_to song.album.artist.name, artist_path(song.album.artist)
+            %td= song_play_time(song.length)
+            %td{ id: "fav_song_#{song.id}" }
+              -if user_signed_in?
+                = render "fav_songs/like_button", song:song
+              -else
+                = link_to 'javascript:void(0)',data:{target:"#login_modal",toggle:"modal"} do
+                  = embedded_svg("un_favorite.svg")
+            %td= song.play_count
+  /お気に入りアルバム
+  .tab-content
+    .tab-pane#favalbum
+      .thumb-container
+        = render @albums
+  /マイアーティスト
+  .tab-content
+    .tab-pane#myartist
+      .thumb-container
+        = render @artists
