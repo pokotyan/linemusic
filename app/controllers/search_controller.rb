@@ -1,4 +1,4 @@
-class SearchsController < ApplicationController
+class SearchController < ApplicationController
 
   def show
     @search_text = params[:id]
