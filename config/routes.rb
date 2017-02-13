@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users, only: :show
   resources :rankings, only: :index
+  resources :searchs, only: :show
   resources :genres, only: [:index,:show,:new,:create]
   resources :artists, only: [:new,:create,:show]
   resources :albums, only: [:new,:create,:show]
