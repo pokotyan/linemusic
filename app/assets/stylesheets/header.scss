@@ -65,15 +65,43 @@ border-top-left-radius: 20px;
 border-bottom-left-radius: 20px;
 }
 //検索フォーム右側の角を丸く
-.input-group-btn > .btn {
-border-radius: 20px;
+.input-group-btn .btn {
+border-radius: 0px;
+border-top-right-radius: 20px;
+border-bottom-right-radius: 20px;
 }
-.input-group-btn > .btn-default {
+.input-group-btn .btn-default {
 color: #d3d5d8;
 }
 //検索フォームのボーダーを消す。（通常時は表示されてないけどサイズを狭めたらでてきた）
 .navbar-inverse .navbar-form{
 border: none;
+}
+
+#incremental{
+  z-index: 1;           //常に上側に表示
+  position: absolute;   //位置は検索窓の下に固定
+  top: 35px;
+  left: 10px;
+  ul{
+    width: 160px;
+    padding-left: 12px;
+    position: static;   //.dropdown-menuのabusoluteを上書き
+    padding: 0;         //インクリメンタルサーチの検索結果がない時にインクリの枠を表示させないため
+    border: 0;          //インクリメンタルサーチの検索結果がない時にインクリの枠を表示させないため
+    display:flex;
+    flex-direction: column;
+    h5{
+      //項目名
+      color: #38c322;
+      margin: 0;
+      padding: 10px;
+    }
+    a{
+      color: #a1a1a1;
+      padding-left: 10px;
+    }
+  }
 }
 
 

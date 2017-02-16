@@ -5,12 +5,14 @@
       %a.navbar-brand{:href => root_path}
         %span{style:"color: #38c322;"} LINE
         %span{style:"color: #1e283c;"} MUSIC
-      %form.navbar-left.navbar-form{:role => "search"}
+      .navbar-left.navbar-form
         .input-group
-          %input.form-control{:name => "q", :type => "text"}/
+          %input.form-control#search_input{:type => "text"}
           .input-group-btn
-            %button.btn.btn-default{:type => "submit"}
+            = link_to "","",id:"search_trigger"
+            %button.btn.btn-default#search_submit
               %i.glyphicon.glyphicon-search
+          #incremental
       /右寄せの部分
       %ul.nav.navbar-nav.navbar-right
         - if user_signed_in?

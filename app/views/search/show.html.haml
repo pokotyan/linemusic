@@ -1,0 +1,60 @@
+.container
+  .search-title
+    = embedded_svg("search.svg")
+    %h2 検索結果
+  %ul.nav.nav-tabs
+    %li.active
+      =link_to "ソング","#result_song", data: { toggle: 'tab' }
+    %li
+      =link_to "アーティスト","#result_artist", data: { toggle: 'tab' }
+    %li
+      =link_to "アルバム","#result_album", data: { toggle: 'tab' }
+  /ソングの検索結果
+  .tab-content
+    .tab-pane.active#result_song
+      - if @songs.empty?
+        .result-none
+          = "「#{@search_text}」に該当する検索結果はありません。"
+      - else
+        %h6= "検索結果は#{@songs.count}件です。"
+        %table.table(data-musics-id='#{@songs_id}')
+          - @songs.each.with_index(1) do |song,i|
+            %tr{ id: song.id }
+              %td
+                %figure.figure_ranking
+                  =image_tag(song.album.album_image.url,class:"thumb_image")
+                  %figcaption
+                    = link_to album_path(song.album) do
+                      = image_tag(song.album.album_image.url,class:"thumb_image thumb_caption")
+                    = link_to 'javascript:void(0)',onclick:"play_music(" + song.id.to_s + "); return false;", class:"tr-a-play", data: {song_id: song.id} do
+                      = embedded_svg("play_button_mini.svg",class:"play-trigger")
+              %td= song.name
+              %td= link_to song.album.artist.name, artist_path(song.album.artist)
+              %td= song_play_time(song.length)
+              %td{ id: "fav_song_#{song.id}" }
+                -if user_signed_in?
+                  = render "fav_songs/like_button", song:song
+                -else
+                  = link_to 'javascript:void(0)',data:{target:"#login_modal",toggle:"modal"} do
+                    = embedded_svg("un_favorite.svg")
+              %td= song.play_count
+  /アーティストの検索結果
+  .tab-content
+    .tab-pane#result_artist
+      - if @artists.empty?
+        .result-none
+          = "「#{@search_text}」に該当する検索結果はありません。"
+      - else
+        %h6= "検索結果は#{@artists.count}件です。"
+        .thumb-container
+          = render @artists
+  /アルバムの検索結果
+  .tab-content
+    .tab-pane#result_album
+      - if @albums.empty?
+        .result-none
+          = "「#{@search_text}」に該当する検索結果はありません。"
+      - else
+        %h6= "検索結果は#{@albums.count}件です。"
+        .thumb-container
+          = render @albums
