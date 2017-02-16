@@ -32,7 +32,7 @@ $(document).on('ready pjax:success',function(){
   });
 
   //再生ボタン、一時停止ボタンの表示切り替え
-  $(".play-trigger,.tr-a-play").click(function(){        //play_music関数を実行し「曲を新たに読み込んで再生」したら
+  audio.addEventListener('loadedmetadata', function() {  //曲を読み込むたびに(読み込むイコール再生したら)
     $(".play").addClass("blind");                        //ボタンの表示は一時停止にする
     $(".pause").removeClass("blind");
   });
