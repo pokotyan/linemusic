@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users, only: :show
   resources :rankings, only: :index
+  get '/search/incremental_search', to: 'search#incremental_search' #この定義はsearch#showより上に書く
   resources :search, only: :show
   resources :genres, only: [:index,:show,:new,:create]
   resources :artists, only: [:new,:create,:show]
