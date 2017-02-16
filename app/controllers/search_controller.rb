@@ -5,6 +5,7 @@ class SearchController < ApplicationController
     @songs = Song.where('name like ?', "%#{@search_text}%")
     @songs_id = @songs.map{|s|s.id}
     @artists = Artist.where('name like ?', "%#{@search_text}%")
+    @albums = Album.where('name like ?', "%#{@search_text}%")
   end
 
   def incremental_search

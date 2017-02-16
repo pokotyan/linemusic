@@ -51,4 +51,10 @@
   /アルバムの検索結果
   .tab-content
     .tab-pane#result_album
-      アルバムの検索結果
+      - if @albums.empty?
+        .result-none
+          = "「#{@search_text}」に該当する検索結果はありません。"
+      - else
+        %h6= "検索結果は#{@albums.count}件です。"
+        .thumb-container
+          = render @albums
