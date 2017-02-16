@@ -2,6 +2,8 @@ class SearchController < ApplicationController
 
   def show
     @search_text = params[:id]
+    @songs = Song.where('name like ?', "%#{@search_text}%")
+    @songs_id = @songs.map{|s|s.id}
   end
 
   def incremental_search
