@@ -1,0 +1,32 @@
+//マイページと検索ページで利用
+.nav-tabs{
+  border-bottom: 3px solid #f0f0f0;
+  li{
+    margin-right: 25px;
+    a{
+      color: #969696;
+      border:none !important;
+      &:hover{background-color: white;}
+      &:focus{background-color: white;}
+    }
+    &.active{
+      border-bottom: 3px solid #38c322;
+      a{
+        color: #38c322 !important;
+        border:none !important;
+      }
+    }
+  }
+}
+.tab-pane{
+  margin-top: 30px;
+  .table > tbody > tr:first-child > td{  //テーブルの一番上のtrのみborder-topをなくす
+    border-top: none;
+  }
+  .thumb-container{
+    justify-content: flex-start;
+    .thumb{
+      .gray{color: #969696;}
+    }
+  }
+}

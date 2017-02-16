@@ -1,1 +1,23 @@
-#{@search_text}
+.container
+  .search-title
+    = embedded_svg("search.svg")
+    %h2 検索結果
+  %ul.nav.nav-tabs
+    %li.active
+      =link_to "ソング","#result_song", data: { toggle: 'tab' }
+    %li
+      =link_to "アーティスト","#result_artist", data: { toggle: 'tab' }
+    %li
+      =link_to "アルバム","#result_album", data: { toggle: 'tab' }
+  /ソングの検索結果
+  .tab-content
+    .tab-pane.active#result_song
+      ソングの検索結果
+  /アーティストの検索結果
+  .tab-content
+    .tab-pane#result_artist
+      アーティストの検索結果
+  /アルバムの検索結果
+  .tab-content
+    .tab-pane#result_album
+      アルバムの検索結果
