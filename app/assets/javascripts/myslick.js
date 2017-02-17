@@ -7,6 +7,6 @@ $(document).on('ready pjax:success',function(){
     dots: true,
     arrows: true,        //trueにしないと矢印が見えない。css側で色も変更するのを忘れずに
     centerMode: true,
-    centerPadding: '15%' //この値を変えれば画像のでかさが変わる
+    centerPadding: '25%' //この値を変えれば画像のでかさが変わる
   });
 });
