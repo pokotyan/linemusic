@@ -1,47 +1,50 @@
 %nav.navbar.navbar-inverse.navbar-fixed-top
   .container
     //１列目
-    .navbar-header
-      %a.navbar-brand{:href => root_path}
-        %span{style:"color: #38c322;"} LINE
-        %span{style:"color: #1e283c;"} MUSIC
-      .navbar-left.navbar-form
-        .input-group
-          %input.form-control#search_input{:type => "text"}
-          .input-group-btn
-            = link_to "","",id:"search_trigger"
-            %button.btn.btn-default#search_submit
-              %i.glyphicon.glyphicon-search
-          #incremental
-      /右寄せの部分
-      %ul.nav.navbar-nav.navbar-right
-        - if user_signed_in?
-          %li.dropdown
-            %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-              /ユーザー画像がsvgかそれ以外かで、embedded_svg使うかimage_tag使うかの選択
-              - if current_user.user_image.url[-3,3] == "svg"
-                = embedded_svg(current_user.user_image.url,class:"header-user-image")
-              - else
-                = image_tag(current_user.user_image.url,class:"header-user-image")
-              = current_user.name
-              %span.caret
-            %ul.dropdown-menu
-              %li
-                = link_to("ログアウト", destroy_user_session_path, method: :delete)
-              - if current_user.admin?
-                %li.divider
+    .navbar-header.first_row
+      .center
+        %a.navbar-brand{:href => root_path}
+          %span{style:"color: #38c322;"} LINE
+          %span{style:"color: #1e283c;"} MUSIC
+        .navbar-left.navbar-form
+          .input-group
+            %input.form-control#search_input{:type => "text"}
+            .input-group-btn
+              = link_to "","",id:"search_trigger"
+              %button.btn.btn-default#search_submit
+                %i.glyphicon.glyphicon-search
+            #incremental
+        /右寄せの部分
+        %ul.nav.navbar-nav.navbar-right
+          - if user_signed_in?
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                /ユーザー画像がsvgかそれ以外かで、embedded_svg使うかimage_tag使うかの選択
+                - if current_user.user_image.url[-3,3] == "svg"
+                  = embedded_svg(current_user.user_image.url,class:"header-user-image")
+                - else
+                  = image_tag(current_user.user_image.url,class:"header-user-image")
+                = current_user.name
+                %span.caret
+              %ul.dropdown-menu
                 %li
-                  = link_to("ジャンルの投稿",new_genre_path)
-                %li
-                  = link_to("アーティストの投稿",new_artist_path)
-                %li
-                  = link_to("アルバムの投稿",new_album_path)
-                %li
-                  = link_to("曲の投稿",new_song_path)
-        - else
-          %li
-            = link_to("ログイン", new_user_session_path)
-    //2列目
+                  = link_to("ログアウト", destroy_user_session_path, method: :delete)
+                - if current_user.admin?
+                  %li.divider
+                  %li
+                    = link_to("ジャンルの投稿",new_genre_path)
+                  %li
+                    = link_to("アーティストの投稿",new_artist_path)
+                  %li
+                    = link_to("アルバムの投稿",new_album_path)
+                  %li
+                    = link_to("曲の投稿",new_song_path)
+          - else
+            %li
+              = link_to("ログイン", new_user_session_path)
+  %hr.header_line
+  //2列目
+  .container
     .navbar-header
       /幅を狭めた時にヘッダーのメニュー（#header-menu）がハンバーガーになるようにする。
       %button.navbar-toggle.collapsed{"aria-controls" => "navbar", "aria-expanded" => "false", "data-target" => "#header-menu", "data-toggle" => "collapse", :type => "button"}

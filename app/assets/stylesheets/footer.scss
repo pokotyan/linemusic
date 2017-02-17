@@ -1,93 +1,95 @@
 .blind{
   display: none;
 }
-
-.footer{
-  position: fixed;
-  bottom:0px;
-  left:0px;
-  right:0px;
-  height:70px;
-  background-color:#1e283c;
-  z-index:2; //サムネイルのキャプションがフッターの上に重ならないようにする
-  .audio_player{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height:100%;
-    .album_image_wrapper{
-      height:100%;
-      width:70px;
-      margin-right:20px;
-      img{
-        width: 100%;
-        height: auto;
-      }
-    }
-    .player_button_wrapper{
+.footer_wrapper{
+  height:150px; //フッターの後ろにコンテンツが隠れないようにするためのマージン
+  .footer{
+    position: fixed;
+    bottom:0px;
+    left:0px;
+    right:0px;
+    height:70px;
+    background-color:#1e283c;
+    z-index:2; //サムネイルのキャプションがフッターの上に重ならないようにする
+    .audio_player{
       display: flex;
-      align-items: center;
-      height:100%;
-      margin-right:20px;
-      .player_button{
-        width: 46px;
-        height: 46px;
-        fill: white;
-        stroke: white;
-        &:hover{
-          fill: green;
-          stroke: green;      
-        }
-      }
-    }
-    .flex-container_column{
-      display: flex;
-      flex-wrap:wrap;
       justify-content: center;
-      align-items: flex-start;
-      flex-direction: column;
-      margin-right:20px;
-      #song_info{
-        strong{
-          color: white;
-        }
-        a{
-          color: #969696;
-        }
-      }
-      .progress_wrapper{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        .progress{
-          height:5px;
-          width: 400px;
-          margin-bottom:0;
-          margin-right:10px;
-        }
-        .display_time{
-          color:white;
-        }
-      }
-      a.glyphicon{
-        color: white;
-        text-decoration: none;
-        font-size: 18px;
-        &:hover{
-          color: green;
-        }
-      }
-    }
-    .controll_wrapper{
-      display: flex;
       align-items: center;
       height:100%;
-      margin-right:20px;
-      .controll_svg{
-        width: 30px;
-        height: 30px;
-        fill: white;
-        stroke: white;
+      .album_image_wrapper{
+        height:100%;
+        width:70px;
+        margin-right:20px;
+        img{
+          width: 100%;
+          height: auto;
+        }
+      }
+      .player_button_wrapper{
+        display: flex;
+        align-items: center;
+        height:100%;
+        margin-right:20px;
+        .player_button{
+          width: 46px;
+          height: 46px;
+          fill: white;
+          stroke: white;
+          &:hover{
+            fill: green;
+            stroke: green;      
+          }
+        }
+      }
+      .flex-container_column{
+        display: flex;
+        flex-wrap:wrap;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+        margin-right:20px;
+        #song_info{
+          strong{
+            color: white;
+          }
+          a{
+            color: #969696;
+          }
+        }
+        .progress_wrapper{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          .progress{
+            height:5px;
+            width: 400px;
+            margin-bottom:0;
+            margin-right:10px;
+          }
+          .display_time{
+            color:white;
+          }
+        }
+        a.glyphicon{
+          color: white;
+          text-decoration: none;
+          font-size: 18px;
+          &:hover{
+            color: green;
+          }
+        }
+      }
+      .controll_wrapper{
+        display: flex;
+        align-items: center;
+        height:100%;
+        margin-right:20px;
+        .controll_svg{
+          width: 30px;
+          height: 30px;
+          fill: white;
+          stroke: white;
+        }
       }
     }
   }

@@ -14,10 +14,11 @@
 @import "nav_tab";
 @import "mypage";
 @import "search";
+@import "genre";
 
 //ヘッダーを常に上で固定
 body {
-    padding: 109px 0 52px 0;
+    padding: 130px 0 52px 0;
 }
 
 //デフォルトのaタグの色を全部黒に設定
@@ -28,3 +29,7 @@ a:active { color: #000000; }
 
 //曲一覧テーブルの各曲の上をホバーすると色が変わる
 tr:hover { background: #EEEEEE; }
+
+.container{
+  max-width: 996px;
+}
