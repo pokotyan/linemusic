@@ -1,3 +1,6 @@
 .container
-  .thumb-container.flex-start
+  .genre-home
+    = embedded_svg("genre_title.svg")
+    %h2.txt ジャンル
+  .thumb-container
     = render @genres

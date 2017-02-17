@@ -1,0 +1,54 @@
+.genre-home{
+  margin-top: 50px;
+
+  display: flex;
+  flex-direction: row;
+  .txt{
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 10px;
+  }
+}
+//genre#indexのサムネイル。子要素（.genre-center）を親要素(.thumb-genre)の横幅いっぱいに。http://appstars.jp/archive/14
+.thumb-genre{
+  margin-top: 29px; //各サムネイル間の上と左の余白
+  margin-left: 26px;
+
+  width:140px;
+  height:140px;
+  background: #333333;
+  position:relative;
+  .genre_image{
+    width: 100%;
+    height: auto;
+  }
+  .genre-bottom{
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;     /* 縦方向中央揃え（Safari用） */
+    align-items: center;             /* 縦方向中央揃え */
+    -webkit-justify-content: center; /* 横方向中央揃え（Safari用） */
+    justify-content: center;         /* 横方向中央揃え */
+
+    color:white;
+    background: #38c322;
+    width: 100%;
+    position: absolute;
+    top: 75%;
+    bottom: 0;
+    right: 0;
+    left: 0;
+  }
+}
+.genre_title{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 50px;
+  h2{margin: 0;}
+  li{list-style-type: none;}
+  .select-button{
+    border-radius: 0px;
+    border-color: #ebebeb;
+  }
+}
