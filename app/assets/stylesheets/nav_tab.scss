@@ -30,3 +30,24 @@
     }
   }
 }
+//activeクラスのスタイル
+.nav-tabs{
+  > li{
+    margin-right: 36px;
+    > a{
+      padding-left: 0;
+      padding-right: 0;
+      color: #a1a1a1;
+      &:hover,&:focus{
+          color: black;
+      }
+    }
+    &.active{
+      border-bottom: 3px solid #38c322;
+      > a,a:focus,a:hover{
+        color: #38c322;
+        background-color: white;
+      }
+    }
+  }
+}
