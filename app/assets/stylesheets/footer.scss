@@ -4,6 +4,8 @@
 .footer_wrapper{
   height:150px; //フッターの後ろにコンテンツが隠れないようにするためのマージン
   .footer{
+    display: flex;
+    justify-content: center;
     position: fixed;
     bottom:0px;
     left:0px;
@@ -13,13 +15,13 @@
     z-index:2; //サムネイルのキャプションがフッターの上に重ならないようにする
     .audio_player{
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
       height:100%;
+      width:970px;
       .album_image_wrapper{
         height:100%;
         width:70px;
-        margin-right:20px;
         img{
           width: 100%;
           height: auto;
@@ -29,7 +31,6 @@
         display: flex;
         align-items: center;
         height:100%;
-        margin-right:20px;
         .player_button{
           width: 46px;
           height: 46px;
@@ -47,7 +48,6 @@
         justify-content: center;
         align-items: flex-start;
         flex-direction: column;
-        margin-right:20px;
         #song_info{
           strong{
             color: white;
@@ -83,7 +83,6 @@
         display: flex;
         align-items: center;
         height:100%;
-        margin-right:20px;
         .controll_svg{
           width: 30px;
           height: 30px;
