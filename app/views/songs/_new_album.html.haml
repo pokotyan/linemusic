@@ -1,0 +1,10 @@
+.new_thumb
+  %figure
+    =image_tag(album.album_image.url,class:"thumb_image")
+    %figcaption
+      = link_to album_path(album) do
+        = image_tag(album.album_image.url,class:"thumb_image thumb_caption")
+  .info
+    .txt
+      %h6= link_to album.name,album_path(album)
+      %h6= link_to album.artist.name,artist_path(album.artist),style:"color: #969696;"

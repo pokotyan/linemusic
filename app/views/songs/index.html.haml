@@ -12,6 +12,12 @@
   = render partial: "songs/title_bar", locals: {title: "ランキング",path:"/rankings"}
   .thumb-container
     = render @rankings
+.container
+  = render partial: "songs/title_bar", locals: {title: "NEW ALBUMS",path:"/"}
+  .thumb-container
+    - @new_albums.each do |album|
+      = render partial: "songs/new_album", locals: {album: album}
+%hr.midline
 / チケットモーダル トリガー
 %a#ticket_modal_trigger{"data-target" => "#ticket_modal", "data-toggle" => "modal"}
 / チケットモーダル 内容

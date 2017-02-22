@@ -1,6 +1,7 @@
 class SongsController < ApplicationController
   def index
     @rankings = Song.includes(:album).order(play_count: :desc).limit(6)
+    @new_albums = Album.order(release_date: :desc).limit(9)
   end
 
   def new
