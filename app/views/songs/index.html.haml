@@ -13,13 +13,13 @@
   .thumb-container
     = render @rankings
 .container
-  = render partial: "songs/title_bar", locals: {title: "NEW ALBUMS",path:"/"}
+  = render partial: "songs/title_bar", locals: {title: "NEW ALBUMS",path:"/trend"}
   .thumb-container
     - @new_albums.each do |album|
       = render partial: "songs/new_album", locals: {album: album}
 %hr.midline
 .container
-  = render partial: "songs/title_bar", locals: {title: "おすすめアーティスト",path:"/"}
+  = render partial: "songs/title_bar", locals: {title: "おすすめアーティスト",path:"/trend"}
   .thumb-container
     = render @reccomend_artists
 / チケットモーダル トリガー
