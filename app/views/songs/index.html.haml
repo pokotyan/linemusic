@@ -11,7 +11,7 @@
 .container
   = render partial: "songs/title_bar", locals: {title: "ランキング",path:"/rankings"}
   .thumb-container
-    = render @songs
+    = render @rankings
 / チケットモーダル トリガー
 %a#ticket_modal_trigger{"data-target" => "#ticket_modal", "data-toggle" => "modal"}
 / チケットモーダル 内容
