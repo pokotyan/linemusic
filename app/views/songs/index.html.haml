@@ -18,6 +18,10 @@
     - @new_albums.each do |album|
       = render partial: "songs/new_album", locals: {album: album}
 %hr.midline
+.container
+  = render partial: "songs/title_bar", locals: {title: "おすすめアーティスト",path:"/"}
+  .thumb-container
+    = render @reccomend_artists
 / チケットモーダル トリガー
 %a#ticket_modal_trigger{"data-target" => "#ticket_modal", "data-toggle" => "modal"}
 / チケットモーダル 内容
