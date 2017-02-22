@@ -9,6 +9,7 @@
     =link_to "#" do
       =image_tag("carousel_3.png")
 .container
+  = render partial: "songs/title_bar", locals: {title: "ランキング",path:"/rankings"}
   .thumb-container
     = render @songs
 / チケットモーダル トリガー
