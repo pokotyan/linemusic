@@ -1,0 +1,17 @@
+.container
+  .trend-title
+    = embedded_svg("genre_title.svg")
+    %h2.txt NEW ALBUMS
+  %ul.nav.nav-tabs
+    %li.active
+      =link_to "NEW ALBUMS","#new_albums", data: { toggle: 'tab' }
+    %li
+      =link_to "おすすめアーティスト","#reccomend_artists", data: { toggle: 'tab' }
+  /NEW ALBUMS
+  .tab-content
+    .tab-pane.active#new_albums
+      NEW ALBUMS
+  /おすすめアーティスト
+  .tab-content
+    .tab-pane#reccomend_artists
+      おすすめアーティスト
