@@ -13,8 +13,8 @@
     font-weight: normal;
     font-style: normal;
 
-    src: url('slick/slick.eot');
-    src: url('slick/slick.eot?#iefix') format('embedded-opentype'), url('slick/slick.woff') format('woff'), url('slick/slick.ttf') format('truetype'), url('slick/slick.svg#slick') format('svg');
+    src: font-url('slick/slick.eot');
+    src: font-url('slick/slick.eot?#iefix') format('embedded-opentype'), font-url('slick/slick.woff') format('woff'), font-url('slick/slick.ttf') format('truetype'), font-url('slick/slick.svg#slick') format('svg');
 }
 /* Arrows */
 .slick-prev,
