@@ -9,6 +9,29 @@
     float: left;
     width: 140px;
   }
+  //横長のサムネ
+  .new_thumb{
+    float: left;      //各サムネイルの横並び
+    margin-top: 20px;
+    margin-left: 26px;
+    width: 306px;
+    display: flex;    //写真の横に曲の情報を表示
+    figure{
+      width: 70px;
+      margin-right: 12px;
+      figcaption{
+        width: 70px;
+      }
+    }
+    .info{
+      display: flex;
+      align-items: center;
+      h6{
+        margin: 0;
+        margin-bottom: 5px;
+      }
+    }
+  }
 }
 //キャプション 参考 http://www.nxworld.net/tips/css-only-caption-effect.html#anchor01
 figure {

@@ -16,5 +16,6 @@ Rails.application.routes.draw do
   resources :follows, only: [:create,:destroy]
   resources :fav_songs, only: [:create,:destroy]
   resources :fav_albums, only: [:create,:destroy]
+  resources :trend, only: :index
   root 'songs#index'
 end
