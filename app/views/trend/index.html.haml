@@ -10,8 +10,10 @@
   /NEW ALBUMS
   .tab-content
     .tab-pane.active#new_albums
-      NEW ALBUMS
+      .thumb-container
+        = render @new_albums
   /おすすめアーティスト
   .tab-content
     .tab-pane#reccomend_artists
-      おすすめアーティスト
+      .thumb-container
+        = render @reccomend_artists
