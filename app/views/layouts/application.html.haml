@@ -76,4 +76,4 @@
       = yield
     = render "layouts/footer"
     = render "layouts/login_modal"
-    = render "playlists/drawer"
+    = render "playlists/drawer" if user_signed_in?
