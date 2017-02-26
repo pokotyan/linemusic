@@ -62,6 +62,14 @@
               -else
                 = link_to 'javascript:void(0)',data:{target:"#login_modal",toggle:"modal"} do
                   = embedded_svg("un_favorite.svg")
+            -if user_signed_in?
+              %td.drawer-trigger
+                = link_to 'javascript:void(0)' do
+                  = embedded_svg("check.svg")
+            -else
+              %td
+                = link_to 'javascript:void(0)',data:{target:"#login_modal",toggle:"modal"} do
+                  = embedded_svg("check.svg")
             %td= song.play_count
   /お気に入りアルバム
   .tab-content

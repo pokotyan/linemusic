@@ -1,0 +1,25 @@
+td{
+  svg{fill: white;}
+  &.selected{
+    svg{fill: #38c322;}
+  }
+}
+.drawer-nav{
+  .drawer-menu{
+    .title {
+      padding: 7.5px;
+      border-top: 3px solid #222;
+      height: 80px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      #drawer-close{
+        width: 15px;
+        height: 15px;
+      }
+    }
+    .line{
+      margin: 0;
+    }
+  }
+}
