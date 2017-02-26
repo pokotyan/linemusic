@@ -1,4 +1,4 @@
-class PlaylistsController < ApplicationController
+class PlaylistSongsController < ApplicationController
   def create
     #params[:data]はこんな感じのデータ {"song_id"=>["26", "23", "7", "5"], "playlist_id"=>"1"}
     song_ids = params[:data][:song_id].map(&:to_i)

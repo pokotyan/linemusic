@@ -51,7 +51,7 @@
           transmisson_data['song_id'] = select_songs;
           transmisson_data['playlist_id'] = playlist_id;
           $.ajax({
-              url: '/playlists',
+              url: '/playlist_songs',
               type: "POST",
               data: {data: transmisson_data}
           });
