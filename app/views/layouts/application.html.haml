@@ -30,7 +30,7 @@
           data: {music_id: id}
         })
       }
-  %body
+  %body.drawer.drawer--right
     = render "layouts/header"
     -if notice
       .alert-info= notice
@@ -40,3 +40,4 @@
       = yield
     = render "layouts/footer"
     = render "layouts/login_modal"
+    = render "playlists/drawer"
