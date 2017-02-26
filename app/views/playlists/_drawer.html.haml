@@ -5,6 +5,5 @@
       = link_to 'javascript:void(0)',id:"drawer-close" do
         = embedded_svg("close.svg")
     %hr.line
-    //実際はcurrent_user.playlistsを回す
-    - (1..3).each do |playlist|
+    - current_user.playlists.each do |playlist|
       = render "playlists/link",playlist:playlist

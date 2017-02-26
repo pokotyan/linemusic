@@ -1,2 +1,2 @@
 %li
-  %a.drawer-menu-item{ href:"javascript:void(0)" }= playlist
+  %a.drawer-menu-item{ href:"javascript:void(0)",onclick:"add_playlist(" + playlist.id.to_s + "); return false;" }= playlist.name
