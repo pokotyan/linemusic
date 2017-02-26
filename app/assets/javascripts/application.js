@@ -16,5 +16,5 @@
 //= require bootstrap-sprockets
 //= require_tree .
 //= require slick/slick.min
-//= require drawer.min
 //= require iscroll
+//= require drawer.min
