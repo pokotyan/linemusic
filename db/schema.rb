@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170226062039) do
+ActiveRecord::Schema.define(version: 20170226062634) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "name",         limit: 255
@@ -71,6 +71,16 @@ ActiveRecord::Schema.define(version: 20170226062039) do
     t.datetime "updated_at",             null: false
   end
 
+  create_table "playlist_songs", force: :cascade do |t|
+    t.integer  "playlist_id", limit: 4
+    t.integer  "song_id",     limit: 4
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  add_index "playlist_songs", ["playlist_id"], name: "index_playlist_songs_on_playlist_id", using: :btree
+  add_index "playlist_songs", ["song_id"], name: "index_playlist_songs_on_song_id", using: :btree
+
   create_table "playlists", force: :cascade do |t|
     t.string   "name",        limit: 255
     t.string   "description", limit: 255
@@ -124,6 +134,8 @@ ActiveRecord::Schema.define(version: 20170226062039) do
   add_foreign_key "fav_songs", "users"
   add_foreign_key "follows", "artists"
   add_foreign_key "follows", "users"
+  add_foreign_key "playlist_songs", "playlists"
+  add_foreign_key "playlist_songs", "songs"
   add_foreign_key "playlists", "users"
   add_foreign_key "songs", "albums"
 end
