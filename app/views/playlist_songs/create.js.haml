@@ -1,0 +1,8 @@
+/フラッシュの表示。フラッシュがすでに表示されてるなら書き換える。ないなら作って値を入れる。
+/ちなみにネストしてコードを書くとエラー（Illegal nesting: nesting within plain text is illegal.）がでる
+if($('.alert-info')[0]){
+$('.alert-info').text("選択した曲をプレイリスト「#{@playlist.name}」に追加しました。");
+}else{
+$('[data-pjax-container=""]').before("<div class=alert-info></div>")
+$('.alert-info').text("選択した曲をプレイリスト「#{@playlist.name}」に追加しました。");
+}

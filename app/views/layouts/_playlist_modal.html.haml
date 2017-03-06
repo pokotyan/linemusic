@@ -1,0 +1,36 @@
+#playlist_modal.modal.fade{"aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog{:role => "document"}
+    .modal-content
+      .modal-header
+        %strong プレイリストを作成
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} ×
+      .modal-body
+        .content
+          .wrapper
+            .bar
+              %h5 タイトル
+              %h6.title_max 20
+            %textarea.form-control.input.title_text{:rows => "2", :wrap => "hard"}
+          .wrapper
+            .bar
+              %h5 説明
+              %h6.desc_max 40
+            %textarea.form-control.input.desc_text{:rows => "2", :wrap => "hard"}
+          .wrapper
+            .bar
+              %h5 プライバシー設定
+            .inner
+              .discription
+                %h6 プレイリストを公開に設定すると「みんなのプレイリスト」表示され、他のユーザーがリストを再生したり、お気に入りに登録できるようになります。
+              .radio_buttons
+                .radio_button
+                  %input{:type => "radio", :name => "public_state", :value => "publish", :checked => "checked"}
+                  %h5 公開
+                .radio_button
+                  %input{:type => "radio", :name => "public_state",  :value => "private"}
+                  %h5 自分のみ
+      .modal-footer
+        .modal_btn_wrapper
+          %button.btn.btn-primary.btn-lg.gray{"data-dismiss" => "modal"} キャンセル
+          %button.btn.btn-primary.btn-lg.green.create_playlist 作成

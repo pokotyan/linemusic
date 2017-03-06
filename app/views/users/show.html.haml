@@ -31,6 +31,10 @@
       =link_to "お気に入りアルバム","#favalbum", data: { toggle: 'tab' }
     %li
       =link_to "マイアーティスト","#myartist", data: { toggle: 'tab' }
+    %li
+      %btn.btn.btn-default{data:{target:"#playlist_modal",toggle:"modal"}}
+        %span.glyphicon.glyphicon-plus
+        プレイリストを作成
   /マイプレイリスト
   .tab-content
     .tab-pane.active#myplaylist

@@ -16,6 +16,10 @@
         border:none !important;
       }
     }
+    .btn{
+      border: 2px solid #f0f0f0;
+      color: #646464;
+    }
   }
 }
 .tab-pane{
@@ -33,7 +37,7 @@
 //activeクラスのスタイル
 .nav-tabs{
   > li{
-    margin-right: 36px;
+    margin-right: 28px;
     > a{
       padding-left: 0;
       padding-right: 0;

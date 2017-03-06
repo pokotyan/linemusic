@@ -30,6 +30,42 @@
           data: {music_id: id}
         })
       }
+      //曲のplaylist追加メインルーチン
+      function add_playlist(playlist_id){
+        var select_songs = aggregate();
+        add_song_to_playlist(select_songs,playlist_id);
+        exit();
+      }
+      //selectedの収集
+      function aggregate(){
+          var select_songs = []
+          $(".selected").each( function() {
+              select_songs.unshift($(this).parent().attr("id"));
+          });
+          console.log(select_songs);
+          return select_songs;
+      }
+      //データをアクションへ
+      function add_song_to_playlist(select_songs,playlist_id){
+          var transmisson_data = {}
+          transmisson_data['song_id'] = select_songs;
+          transmisson_data['playlist_id'] = playlist_id;
+          $.ajax({
+              url: '/playlist_songs',
+              type: "POST",
+              data: {data: transmisson_data}
+          });
+      }
+      //UIの終了処理
+      function exit(){
+          //選択状態を外す
+          $(".selected").each( function() {
+              $(this).removeClass("selected");
+          });
+          //ドロワーを閉じる
+          $("body").removeClass("drawer-open");
+          $("body").addClass("drawer-close");
+      }
   %body.drawer.drawer--right
     = render "layouts/header"
     -if notice
@@ -40,4 +76,5 @@
       = yield
     = render "layouts/footer"
     = render "layouts/login_modal"
-    = render "playlists/drawer"
+    = render "layouts/playlist_modal"
+    = render "playlists/drawer" if user_signed_in?
