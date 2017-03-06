@@ -103,7 +103,10 @@
           border: none;
           margin: 0;
           &.gray{background-color: #1d2f4f;}
-          &.green{background-color: #38c322;}
+          &.green{
+            background-color: #38c322;
+            opacity: 0.55;
+          }
         }
       }
     }
