@@ -7,7 +7,9 @@ $(document).on('ready pjax:end',function(){
 
   });
   $(".create_playlist").on('click', function() {
-    var public_state = $('input[name=public_state]:checked').val();
+    if($('.create_playlist').hasClass("active")){
+      send_data_to_playlists_create();
+    }
   });
 });
 function display_number_of_remaining_characters(self){
@@ -31,4 +33,15 @@ function active_inactive_of_button(){
     $(".create_playlist").css('opacity',"0.55");
     $(".create_playlist").removeClass("active");
   }
+}
+function send_data_to_playlists_create(){
+  var data = {}
+  data['title'] = $('.title_text').val();
+  data['desc'] = $('.desc_text').val();
+  data['public_state'] = $('input[name=public_state]:checked').val();
+  $.ajax({
+    url: '/playlists',
+    type: "POST",
+    data: {data: data}
+  })
 }
