@@ -1,5 +1,5 @@
 $(document).on('ready pjax:complete',function(){
-  if($("header-user-image")[0]){               //ログインしてたら実行(未ログイン時に実行するとjsがバグる)
+  if($(".header-user-image")[0]){               //ログインしてたら実行(未ログイン時に実行するとjsがバグる)
 
     drawer_start();
 
@@ -22,7 +22,7 @@ $(document).on('ready pjax:complete',function(){
 });
 
 $(document).on('pjax:complete',function(){         //ドロワー開いた状態で別のページに移動したらドロワー閉じる
-  if($("header-user-image")[0]){               //ログインしてたら実行
+  if($(".header-user-image")[0]){               //ログインしてたら実行
       if ( $("body").hasClass("drawer-open") ){
         $("body").removeClass("drawer-open");
         $("body").addClass("drawer-close");
