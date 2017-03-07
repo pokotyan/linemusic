@@ -15,4 +15,9 @@ class PlaylistsController < ApplicationController
     @playlist = Playlist.find(params[:id])
     @songs_id = @playlist.songs.map{|s|s.id}
   end
+
+  def destroy
+    @playlist = Playlist.find(params[:id])
+    @playlist.destroy
+  end
 end

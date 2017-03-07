@@ -34,17 +34,3 @@
         .modal_btn_wrapper
           %button.btn.btn-primary.btn-lg.gray{"data-dismiss" => "modal"} キャンセル
           %button.btn.btn-primary.btn-lg.green.create_playlist 作成
-#playlist_destroy_modal.modal.fade{"aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
-  .modal-dialog{:role => "document"}
-    .modal-content
-      .modal-header
-        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
-          %span{"aria-hidden" => "true"} ×
-      .modal-body{:style => "display: flex; justify-content: center;"}
-        .content
-          %h4 このプレイリストを削除してもよろしいですか？
-      .modal-footer
-        .modal_btn_wrapper
-          %button.btn.btn-primary.btn-lg.gray{"data-dismiss" => "modal"} キャンセル
-          = link_to "#" do
-            %button.btn.btn-primary.btn-lg.green.modal_login_btn{:style => "margin-left: 0;"} 削除
