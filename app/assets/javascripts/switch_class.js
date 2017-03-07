@@ -12,8 +12,8 @@ $(document).on('ready pjax:success',function(){
   }else if( location.href.match(/users\/[0-9]+/) ){
     $("#header-menu > ul > .active").removeClass("active");
     $('#header-menu > ul > li:nth-child(4)').addClass("active");
-  //検索
-  }else if( location.href.match(/search/) ){
+  //検索、プレイリスト
+  }else if( location.href.match(/search/) || location.href.match(/playlists/)){
     $("#header-menu > ul > .active").removeClass("active");
   //トップ
   }else{

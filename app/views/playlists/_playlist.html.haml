@@ -1,6 +1,6 @@
 .thumb
   %figure
-    = link_to "#" do
+    = link_to playlist_path(playlist) do
       - if playlist.songs.count != 0
         =image_tag(playlist.songs[0].album.album_image.url,class:"thumb_image")
         %figcaption
@@ -9,7 +9,7 @@
         =image_tag("playlist_default.png",class:"thumb_image")
         %figcaption
           = image_tag("playlist_default.png",class:"thumb_image thumb_caption")
-  %h6= link_to playlist.name, "#"
+  %h6= link_to playlist.name, playlist_path(playlist)
   - if playlist.private?
     %h6.gray 自分のみ
   - else

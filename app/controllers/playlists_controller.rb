@@ -9,4 +9,9 @@ class PlaylistsController < ApplicationController
     @playlist.private = false if public_state == "publish"
     @playlist.private = true if public_state == "private"
   end
+
+  def show
+    @playlist = Playlist.find(params[:id])
+    @songs_id = @playlist.songs.map{|s|s.id}
+  end
 end
