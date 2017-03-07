@@ -4,10 +4,3 @@ var a = $("<a></a>",{href: url,"id": "tmp_a"});
 $('body').prepend(a);
 $('#tmp_a').click();
 $('#tmp_a').remove();
-//フラッシュがすでにあるなら書き換え。ないならフラッシュ要素を作ってテキストを代入
-if($('.alert-info')[0]){
-$('.alert-info').text("プレイリスト「#{@playlist.name}」を削除しました。");
-}else{
-$('[data-pjax-container=""]').before("<div class=alert-info></div>")
-$('.alert-info').text("プレイリスト「#{@playlist.name}」を削除しました。");
-}
