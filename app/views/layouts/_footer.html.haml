@@ -23,9 +23,11 @@
             %span#current_time 00:00
             %span#duration 00:00
       .flex-container_column
-        %a.glyphicon.glyphicon-menu-up
-        %a.glyphicon.glyphicon-menu-down
+        %a.glyphicon.glyphicon-menu-up{href:"javascript:void(0)"}
+        %a.glyphicon.glyphicon-menu-down{href:"javascript:void(0)"}
       .controll_wrapper
-        = embedded_svg("mute.svg",class:"controll_svg mute")
+        = link_to 'javascript:void(0)' do
+          = embedded_svg("mute.svg",class:"controll_svg mute")
       .controll_wrapper
-        = embedded_svg("repeat.svg",class:"controll_svg repeat")
+        = link_to 'javascript:void(0)' do
+          = embedded_svg("repeat.svg",class:"controll_svg repeat")
