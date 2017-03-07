@@ -8,6 +8,7 @@ class PlaylistsController < ApplicationController
     @playlist.private = false if public_state == "publish"
     @playlist.private = true if public_state == "private"
     @playlist.save
+    @myplaylists = current_user.playlists
   end
 
   def show

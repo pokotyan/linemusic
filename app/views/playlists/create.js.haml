@@ -7,3 +7,5 @@ $('.alert-info').text("プレイリスト「#{@playlist.name}」を作成しま�
 $('[data-pjax-container=""]').before("<div class=alert-info></div>")
 $('.alert-info').text("プレイリスト「#{@playlist.name}」を作成しました。");
 }
+//マイページのマイプレイリストの表示を更新
+$('#render_playlists_for_mypage').html("#{ j(render @myplaylists ) }");
