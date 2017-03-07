@@ -24,6 +24,11 @@
             .col-md-2.col-xs-6.public_state 公開
         .row.description
           .col-md-2.col-xs-6= @playlist.description
+        .row
+          .col-md-2.col-xs-6
+            %btn.btn.btn-default{data:{target:"#playlist_destroy_modal",toggle:"modal"}}
+              %span.glyphicon.glyphicon-trash
+              リストを削除
   - if @playlist.songs.count != 0
     %table.table(data-musics-id='#{@songs_id}')
       - @playlist.songs.each.with_index(1) do |song,i|

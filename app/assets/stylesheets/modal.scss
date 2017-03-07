@@ -112,3 +112,36 @@
     }
   }
 }
+#playlist_destroy_modal{
+  .modal-content{
+    border-radius: 0;
+    border-top: 3px solid #38c322;
+    .modal-header{
+      border:none;
+    }
+    .modal-body{
+      display: flex;
+      justify-content: center;
+      .content{
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+    .modal-footer{
+      border:none;
+      .modal_btn_wrapper{
+        display: flex;
+        justify-content: center;
+        button{
+          width: 122px;
+          border-radius: 0px;
+          border: none;
+          margin: 0;
+          &.gray{background-color: #1d2f4f;}
+          &.green{background-color: #38c322;}
+        }
+      }
+    }
+  }
+}
