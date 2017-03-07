@@ -11,5 +11,7 @@ class UsersController < ApplicationController
 
     #お気に入りアルバム
     @albums = @user.f_albums
+
+    @myplaylists = @user.playlists
   end
 end
