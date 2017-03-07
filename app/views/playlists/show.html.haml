@@ -24,6 +24,11 @@
             .col-md-2.col-xs-6.public_state 公開
         .row.description
           .col-md-2.col-xs-6= @playlist.description
+        .row
+          .col-md-2.col-xs-6
+            %btn.btn.btn-default{data:{target:"#playlist_destroy_modal",toggle:"modal"}}
+              %span.glyphicon.glyphicon-trash
+              リストを削除
   - if @playlist.songs.count != 0
     %table.table(data-musics-id='#{@songs_id}')
       - @playlist.songs.each.with_index(1) do |song,i|
@@ -41,3 +46,18 @@
   - else
     .playlist_songs_none
       プレイリストに曲が入っていません。好きな曲を追加してプレイリストを作ろう！
+//プレイリスト削除モーダル
+#playlist_destroy_modal.modal.fade{"aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog{:role => "document"}
+    .modal-content
+      .modal-header
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} ×
+      .modal-body{:style => "display: flex; justify-content: center;"}
+        .content
+          %h4 このプレイリストを削除してもよろしいですか？
+      .modal-footer
+        .modal_btn_wrapper
+          %button.btn.btn-primary.btn-lg.gray{"data-dismiss" => "modal"} キャンセル
+          = link_to playlist_path(@playlist), method:"delete", remote: true, data:{skip_pjax: ''} do
+            %button.btn.btn-primary.btn-lg.green.modal_login_btn{:style => "margin-left: 0;"} 削除
