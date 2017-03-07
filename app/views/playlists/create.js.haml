@@ -7,3 +7,13 @@ $('.alert-info').text("プレイリスト「#{@playlist.name}」を作成しま�
 $('[data-pjax-container=""]').before("<div class=alert-info></div>")
 $('.alert-info').text("プレイリスト「#{@playlist.name}」を作成しました。");
 }
+//マイページのマイプレイリストの表示を更新
+$('#render_playlists_for_mypage').html("#{ j(render @myplaylists ) }");
+//ドロワーのマイプレイリストの表示を更新
+var myplaylists = "#{@myplaylists.to_json}";
+myplaylists = JSON.parse(myplaylists.replace(/&quot;/g,'"'));
+var html = '';
+for (var i = 0; i < myplaylists.length; i++) {
+html += '<li><a class="drawer-menu-item" href="javascript:void(0)" onclick="add_playlist(' + myplaylists[i].id + '); return false;">' + myplaylists[i].name + '</a></li>';
+}
+$('#render_playlists_for_drawer').html(html);

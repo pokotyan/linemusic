@@ -5,5 +5,9 @@
       = link_to 'javascript:void(0)',id:"drawer-close" do
         = embedded_svg("close.svg")
     %hr.line
-    - current_user.playlists.each do |playlist|
-      = render "playlists/link",playlist:playlist
+    = link_to 'javascript:void(0)', class:"drawer-menu-item", data:{target:"#playlist_modal",toggle:"modal"} do
+      %span.glyphicon.glyphicon-plus
+      プレイリストを作成
+    #render_playlists_for_drawer
+      - current_user.playlists.each do |playlist|
+        = render "playlists/link",playlist:playlist

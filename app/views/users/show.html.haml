@@ -38,7 +38,8 @@
   /マイプレイリスト
   .tab-content
     .tab-pane.active#myplaylist
-      マイプレイリスト
+      .thumb-container#render_playlists_for_mypage
+        = render @myplaylists
   /お気に入りプレイリスト
   .tab-content
     .tab-pane#favplaylist

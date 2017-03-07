@@ -1,4 +1,4 @@
-$(document).on('ready pjax:end',function(){
+$(document).on('ready',function(){
   $(".input").on("keyup", function() {            //入力するたび
 
     display_number_of_remaining_characters(this)  //残り入力可能文字数の表示

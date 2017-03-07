@@ -1,0 +1,43 @@
+.container.show_page
+  .row.info_container
+    .col-md-3
+      - if @playlist.songs.count != 0
+        = image_tag @playlist.songs[0].album.album_image.url
+      - else
+        = image_tag "playlist_default.png"
+    .col-md-9
+      %h2.name= @playlist.name
+      .container.info
+        .row
+          .col-md-2.col-xs-6 作成者
+          .col-md-2.col-xs-6= @playlist.user.name
+        .row
+          .col-md-2.col-xs-6 ソング
+          .col-md-2.col-xs-6= "#{@playlist.songs.count}曲"
+        .row
+          .col-md-2.col-xs-6 再生時間
+          .col-md-2.col-xs-6= album_play_time(@playlist)
+        .row
+          - if @playlist.private?
+            .col-md-2.col-xs-6.public_state 自分のみ
+          - else
+            .col-md-2.col-xs-6.public_state 公開
+        .row.description
+          .col-md-2.col-xs-6= @playlist.description
+  - if @playlist.songs.count != 0
+    %table.table(data-musics-id='#{@songs_id}')
+      - @playlist.songs.each.with_index(1) do |song,i|
+        %tr{ id: song.id }
+          %td= link_to i,'javascript:void(0)',onclick:"play_music(" + song.id.to_s + "); return false;",class:"tr-a-play", data: {song_id: song.id}
+          %td= song.name
+          %td= link_to song.album.artist.name, artist_path(song.album.artist)
+          %td= song_play_time(song.length)
+          %td{ id: "fav_song_#{song.id}" }
+            = render "fav_songs/like_button", song:song
+          %td.drawer-trigger
+            = link_to 'javascript:void(0)' do
+              = embedded_svg("check.svg")
+          %td= song.play_count
+  - else
+    .playlist_songs_none
+      プレイリストに曲が入っていません。好きな曲を追加してプレイリストを作ろう！

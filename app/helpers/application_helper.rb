@@ -28,6 +28,7 @@ module ApplicationHelper
 
   #アルバム全体での曲長。秒数となってる曲長を分秒に変換
   def album_play_time(album)
+    return "00:00:00" if album.songs.count == 0
     sec = album.songs.map{|s|s.length}.inject(:+)
     Time.at(sec).utc.strftime("%X")
   end
