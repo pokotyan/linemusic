@@ -10,7 +10,7 @@
       .container.my_info
         .row
           .col-md-2.col-xs-6 マイプレイリスト
-          .col-md-2.col-xs-6 2個
+          .col-md-2.col-xs-6= "#{@user.playlists.count}個"
         .row
           .col-md-2.col-xs-6 お気に入りソング
           .col-md-2.col-xs-6= "#{@user.fav_songs.count}曲"
@@ -62,19 +62,10 @@
             %td= link_to song.album.artist.name, artist_path(song.album.artist)
             %td= song_play_time(song.length)
             %td{ id: "fav_song_#{song.id}" }
-              -if user_signed_in?
-                = render "fav_songs/like_button", song:song
-              -else
-                = link_to 'javascript:void(0)',data:{target:"#login_modal",toggle:"modal"} do
-                  = embedded_svg("un_favorite.svg")
-            -if user_signed_in?
-              %td.drawer-trigger
-                = link_to 'javascript:void(0)' do
-                  = embedded_svg("check.svg")
-            -else
-              %td
-                = link_to 'javascript:void(0)',data:{target:"#login_modal",toggle:"modal"} do
-                  = embedded_svg("check.svg")
+              = render "fav_songs/like_button", song:song
+            %td.drawer-trigger
+              = link_to 'javascript:void(0)' do
+                = embedded_svg("check.svg")
             %td= song.play_count
   /お気に入りアルバム
   .tab-content

@@ -1,14 +1,6 @@
-//プレイリスト削除モーダルを閉じる
-$('.close').click();
 //ユーザーページに移動
 var url = '/users/' + "#{current_user.id}";
 var a = $("<a></a>",{href: url,"id": "tmp_a"});
-$('body').after(a);
+$('body').prepend(a);
 $('#tmp_a').click();
-//フラッシュがすでにあるなら書き換え。ないならフラッシュ要素を作ってテキストを代入
-if($('.alert-info')[0]){
-$('.alert-info').text("プレイリスト「#{@playlist.name}」を削除しました。");
-}else{
-$('[data-pjax-container=""]').before("<div class=alert-info></div>")
-$('.alert-info').text("プレイリスト「#{@playlist.name}」を削除しました。");
-}
+$('#tmp_a').remove();

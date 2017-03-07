@@ -1,4 +1,4 @@
-$(document).on('ready pjax:success',function(){
+$(document).on('ready pjax:end',function(){
   //ヘッダーにある項目のactive切り替え
   //テーマ&ジャンル
   if( location.href.match(/genres/) ){

@@ -11,7 +11,8 @@
 .container
   = render partial: "songs/title_bar", locals: {title: "ランキング",path:"/rankings"}
   .thumb-container
-    = render @rankings
+    - @rankings.each.with_index(1) do |song,i|
+      = render partial: "songs/song", locals: {song: song,i:i}
 .container
   = render partial: "songs/title_bar", locals: {title: "NEW ALBUMS",path:"/trend"}
   .thumb-container

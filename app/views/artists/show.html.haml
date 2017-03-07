@@ -16,7 +16,7 @@
           .col-md-2.col-xs-6 huga
         .row
           .col-md-2.col-xs-6 フォロー
-          .col-md-2.col-xs-6#follower-count 0人のフォロワー
+          .col-md-2.col-xs-6#follower-count= "#{@artist.follower.count}人のフォロワー"
         .row
           .col-md-2#follow-button
             = render 'follows/follow_button', artist: @artist
