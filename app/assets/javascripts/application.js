@@ -18,3 +18,4 @@
 //= require slick/slick.min
 //= require iscroll
 //= require drawer.min
+//= require spin.min
