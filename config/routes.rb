@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   resources :users, only: :show
   resources :rankings, only: :index
   get '/search/incremental_search', to: 'search#incremental_search' #この定義はsearch#showより上に書く
