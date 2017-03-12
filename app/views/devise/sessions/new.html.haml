@@ -17,3 +17,10 @@
       .actions
         = f.submit "Log in"
     = render "devise/shared/links"
+    .omniauth_buttons
+      = link_to user_facebook_omniauth_authorize_path do
+        .btn.omniauth_btn.facebook
+          facebookでログイン
+      = link_to user_twitter_omniauth_authorize_path do
+        .btn.omniauth_btn.twitter
+          twitterでログイン

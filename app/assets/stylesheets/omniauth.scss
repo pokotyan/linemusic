@@ -1,0 +1,17 @@
+.omniauth_buttons{
+  margin-top: 10px;
+  display: flex;
+  flex-flow: column nowrap;
+  .omniauth_btn{
+    margin-top: 5px;
+    width: 154px;
+    height: 33px;
+    color: white;
+  }
+  .facebook{
+    background: #3b5998;
+  }
+  .twitter{
+    background: #55acee;
+  }
+}
