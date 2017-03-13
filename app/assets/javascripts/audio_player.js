@@ -98,6 +98,20 @@ $(document).on('ready pjax:success',function(){
     });
   });
 
+  //全曲リピート
+  $(".repeat_all").on("click",function(){
+    $('.repeat_all').off('click');
+    $(".repeat_all").on("click",function(){
+      var color = $(this).css("fill");
+      if(color == "rgb(255, 255, 255)"){
+        $(this).css("fill","green");
+        $(this).css("stroke","green");
+      }else{
+        $(this).css("fill","white");
+        $(this).css("stroke","white");
+      };
+    });
+  });
 });
 //pjax遷移時のイベント多重登録を防ぐためにハンドラをoff/onをしてるが、この書き方だと
 //ページロード後、初回クリックのみ処理が動かない。なのでjs側でロード後の初回クリックをやっちゃう。力技。
@@ -107,5 +121,6 @@ $(function() {
     $(".glyphicon-menu-down").click();
     $(".mute").click();
     $(".repeat").click();
+    $(".repeat_all").click();
   });
 });
