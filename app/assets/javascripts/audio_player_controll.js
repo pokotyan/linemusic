@@ -18,8 +18,7 @@ $(document).on('ready pjax:end',function(){
     $(".prev").off('click');
     $(".prev").on("click",function(){
       if(typeof random !== 'undefined' && random){              //ランダムが定義されていてかつ、有効なら
-        current = random_id(all_music_ids.length - 1,current);  //ランダム再生
-        return play_music(all_music_ids[current]);
+        return current = random_play(all_music_ids,current);    //ランダム再生
       }
       if(all_music_ids.length === 0){                           //再生する曲がない時は
         return;                                                 //何もしない
@@ -36,8 +35,7 @@ $(document).on('ready pjax:end',function(){
     $(".next").off('click');
     $(".next").on("click",function(){
       if(typeof random !== 'undefined' && random){              //ランダムが定義されていてかつ、有効なら
-        current = random_id(all_music_ids.length - 1,current);  //ランダム再生
-        return play_music(all_music_ids[current]);
+        return current = random_play(all_music_ids,current);    //ランダム再生
       }
       if(all_music_ids.length === 0){                           //再生する曲がない時は
         return;                                                 //何もしない
@@ -58,8 +56,7 @@ $(document).on('ready',function(){
   //以下のendedのリスナーをpjax:endのハンドラに含めてはいけない。pjax遷移のたびにcurrent + 1されてしまう。readyのハンドラ内に書くこと。
   $("#song")[0].addEventListener('ended',function(){
     if(typeof random !== 'undefined' && random){                //ランダムが定義されていてかつ、有効なら
-      current = random_id(all_music_ids.length - 1,current);    //ランダム再生
-      return play_music(all_music_ids[current]);
+      return current = random_play(all_music_ids,current);      //ランダム再生
     }
     if(current == (all_music_ids.length - 1)){                  //終わった曲が最後の曲の場合、
       if(typeof repeat_all !== 'undefined' && repeat_all){         //リピートが定義されていてかつ、有効なら
@@ -80,4 +77,9 @@ function random_id(max,current){                                //ランダム�
     }
   }
   return id;
+}
+function random_play(all_music_ids,current){
+  var current = random_id(all_music_ids.length - 1,current);
+  play_music(all_music_ids[current]);
+  return current;
 }
