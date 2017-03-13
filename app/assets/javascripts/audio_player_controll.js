@@ -20,6 +20,9 @@ $(document).on('ready pjax:end',function(){
       if(all_music_ids.length === 0){                           //再生する曲がない時は
         return;                                                 //何もしない
       }
+      if(typeof $("#song").attr("loop") != 'undefined'){        //１曲ループが有効なら（audioタグにloop属性があるなら）
+        return play_music(all_music_ids[current]);              //再生し直す
+      }
       if(typeof random !== 'undefined' && random){              //ランダムが定義されていてかつ、有効なら
         return current = random_play(all_music_ids,current);    //ランダム再生
       }
