@@ -17,6 +17,10 @@ $(document).on('ready pjax:end',function(){
   $(".prev").on("click",function(){                             //戻るを押した時
     $(".prev").off('click');
     $(".prev").on("click",function(){
+      if(typeof random !== 'undefined' && random){              //ランダムが定義されていてかつ、有効なら
+        current = random_id(all_music_ids.length - 1,current);  //ランダム再生
+        return play_music(all_music_ids[current]);
+      }
       if(all_music_ids.length === 0){                           //再生する曲がない時は
         return;                                                 //何もしない
       }
@@ -31,6 +35,10 @@ $(document).on('ready pjax:end',function(){
   $(".next").on("click",function(){                             //次へを押した時
     $(".next").off('click');
     $(".next").on("click",function(){
+      if(typeof random !== 'undefined' && random){              //ランダムが定義されていてかつ、有効なら
+        current = random_id(all_music_ids.length - 1,current);  //ランダム再生
+        return play_music(all_music_ids[current]);
+      }
       if(all_music_ids.length === 0){                           //再生する曲がない時は
         return;                                                 //何もしない
       }
@@ -49,6 +57,10 @@ $(document).on('ready pjax:end',function(){
 $(document).on('ready',function(){
   //以下のendedのリスナーをpjax:endのハンドラに含めてはいけない。pjax遷移のたびにcurrent + 1されてしまう。readyのハンドラ内に書くこと。
   $("#song")[0].addEventListener('ended',function(){
+    if(typeof random !== 'undefined' && random){                //ランダムが定義されていてかつ、有効なら
+      current = random_id(all_music_ids.length - 1,current);    //ランダム再生
+      return play_music(all_music_ids[current]);
+    }
     if(current == (all_music_ids.length - 1)){                  //終わった曲が最後の曲の場合、
       if(typeof repeat_all !== 'undefined' && repeat_all){         //リピートが定義されていてかつ、有効なら
         current = 0;
@@ -60,3 +72,12 @@ $(document).on('ready',function(){
     play_music(all_music_ids[current]);
   });
 });
+function random_id(max,current){                                //ランダムな曲のidを返す。また再生直後のidは返さない。
+  while (true){
+    var id = Math.floor(Math.random()*(max - 0) + 0);
+    if (id != current) {
+      break;
+    }
+  }
+  return id;
+}

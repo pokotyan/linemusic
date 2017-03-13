@@ -121,9 +121,11 @@ $(document).on('ready pjax:success',function(){
     $(".random").on("click",function(){
       var color = $(this).css("fill");
       if(color == "rgb(255, 255, 255)"){
+        random = true;
         $(this).css("fill","green");
         $(this).css("stroke","green");
       }else{
+        random = false;
         $(this).css("fill","white");
         $(this).css("stroke","white");
       };
