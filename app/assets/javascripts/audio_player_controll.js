@@ -35,6 +35,10 @@ $(document).on('ready pjax:end',function(){
         return;                                                 //何もしない
       }
       if( current === (all_music_ids.length - 1) ){             //今が最後の曲なら
+        if(typeof repeat_all !== 'undefined' && repeat_all){       //リピートが定義されていてかつ、有効なら
+          current = 0;                                             //最初の曲から再度再生
+          return play_music(all_music_ids[current]);
+        }
         return play_music(all_music_ids[current]);              //next_songがないので再生し直す
       }
       current = current + 1                                     //次の曲を再生
@@ -46,6 +50,10 @@ $(document).on('ready',function(){
   //以下のendedのリスナーをpjax:endのハンドラに含めてはいけない。pjax遷移のたびにcurrent + 1されてしまう。readyのハンドラ内に書くこと。
   $("#song")[0].addEventListener('ended',function(){
     if(current == (all_music_ids.length - 1)){                  //終わった曲が最後の曲の場合、
+      if(typeof repeat_all !== 'undefined' && repeat_all){         //リピートが定義されていてかつ、有効なら
+        current = 0;
+        return play_music(all_music_ids[current]);                 //最初の曲から再度再生
+      }
       return;                                                   //終了
     }
     current = current + 1                                       //次の曲を再生

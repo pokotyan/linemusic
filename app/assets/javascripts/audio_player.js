@@ -104,9 +104,11 @@ $(document).on('ready pjax:success',function(){
     $(".repeat_all").on("click",function(){
       var color = $(this).css("fill");
       if(color == "rgb(255, 255, 255)"){
+        repeat_all = true;
         $(this).css("fill","green");
         $(this).css("stroke","green");
       }else{
+        repeat_all = false;
         $(this).css("fill","white");
         $(this).css("stroke","white");
       };
