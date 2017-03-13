@@ -41,6 +41,24 @@
             stroke: green;      
           }
         }
+        .prev{
+          margin-right: 10px;
+          fill: white;
+          stroke: white;
+          &:hover{
+            fill: green;
+            stroke: green;      
+          }
+        }
+        .next{
+          margin-left: 10px;
+          fill: white;
+          stroke: white;
+          &:hover{
+            fill: green;
+            stroke: green;      
+          }
+        }
       }
       .flex-container_column{
         display: flex;
