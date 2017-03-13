@@ -42,8 +42,7 @@ $(document).on('ready pjax:end',function(){
       }
       if( current === (all_music_ids.length - 1) ){             //今が最後の曲なら
         if(typeof repeat_all !== 'undefined' && repeat_all){       //リピートが定義されていてかつ、有効なら
-          current = 0;                                             //最初の曲から再度再生
-          return play_music(all_music_ids[current]);
+          return current = repeat(all_music_ids,current);          //リピート再生
         }
         return play_music(all_music_ids[current]);              //next_songがないので再生し直す
       }
@@ -60,8 +59,7 @@ $(document).on('ready',function(){
     }
     if(current == (all_music_ids.length - 1)){                  //終わった曲が最後の曲の場合、
       if(typeof repeat_all !== 'undefined' && repeat_all){         //リピートが定義されていてかつ、有効なら
-        current = 0;
-        return play_music(all_music_ids[current]);                 //最初の曲から再度再生
+        return current = repeat(all_music_ids,current);            //リピート再生
       }
       return;                                                   //終了
     }
@@ -80,6 +78,11 @@ function random_id(max,current){                                //ランダム�
 }
 function random_play(all_music_ids,current){
   var current = random_id(all_music_ids.length - 1,current);
+  play_music(all_music_ids[current]);
+  return current;
+}
+function repeat(all_music_ids,current){
+  var current = 0;
   play_music(all_music_ids[current]);
   return current;
 }
