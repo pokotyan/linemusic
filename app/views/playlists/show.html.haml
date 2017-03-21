@@ -24,11 +24,12 @@
             .col-md-2.col-xs-6.public_state 公開
         .row.description
           .col-md-2.col-xs-6= @playlist.description
-        .row
-          .col-md-2.col-xs-6
-            %btn.btn.btn-default{data:{target:"#playlist_destroy_modal",toggle:"modal"}}
-              %span.glyphicon.glyphicon-trash
-              リストを削除
+        - if user_signed_in? && current_user == @playlist.user
+          .row
+            .col-md-2.col-xs-6
+              %btn.btn.btn-default{data:{target:"#playlist_destroy_modal",toggle:"modal"}}
+                %span.glyphicon.glyphicon-trash
+                リストを削除
   - if @playlist.songs.count != 0
     %table.table(data-musics-id='#{@songs_id}')
       - @playlist.songs.each.with_index(1) do |song,i|
@@ -38,10 +39,19 @@
           %td= link_to song.album.artist.name, artist_path(song.album.artist)
           %td= song_play_time(song.length)
           %td{ id: "fav_song_#{song.id}" }
-            = render "fav_songs/like_button", song:song
-          %td.drawer-trigger
-            = link_to 'javascript:void(0)' do
-              = embedded_svg("check.svg")
+            -if user_signed_in?
+              = render "fav_songs/like_button", song:song
+            -else
+              = link_to 'javascript:void(0)',data:{target:"#login_modal",toggle:"modal"} do
+                = embedded_svg("un_favorite.svg")
+          -if user_signed_in?
+            %td.drawer-trigger
+              = link_to 'javascript:void(0)' do
+                = embedded_svg("check.svg")
+          -else
+            %td
+              = link_to 'javascript:void(0)',data:{target:"#login_modal",toggle:"modal"} do
+                = embedded_svg("check.svg")
           %td= song.play_count
   - else
     .playlist_songs_none
