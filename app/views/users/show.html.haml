@@ -38,12 +38,12 @@
   /マイプレイリスト
   .tab-content
     .tab-pane.active#myplaylist
-      - if @myplaylists.count != 0
-        .thumb-container#render_playlists_for_mypage
+      .thumb-container#render_playlists_for_mypage
+        - if @myplaylists.count != 0
           = render @myplaylists
-      - else
-        .content_none
-          好きな曲を追加して自分だけのオリジナルプレイリストを作成してみよう！
+        - else
+          .content_none
+            好きな曲を追加して自分だけのオリジナルプレイリストを作成してみよう！
   /お気に入りプレイリスト
   .tab-content
     /TODO:プレイリストのお気に入り機能追加後にここのビューも修正
