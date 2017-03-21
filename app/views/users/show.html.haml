@@ -39,41 +39,58 @@
   .tab-content
     .tab-pane.active#myplaylist
       .thumb-container#render_playlists_for_mypage
-        = render @myplaylists
+        - if @myplaylists.count != 0
+          = render @myplaylists
+        - else
+          .content_none
+            好きな曲を追加して自分だけのオリジナルプレイリストを作成してみよう！
   /お気に入りプレイリスト
   .tab-content
+    /TODO:プレイリストのお気に入り機能追加後にここのビューも修正
     .tab-pane#favplaylist
-      お気に入りプレイリスト
+      好きなプレイリストをお気に入りに追加しよう！
   /お気に入りソング
   .tab-content
     .tab-pane#favsong
-      %table.table(data-musics-id='#{@songs_id}')
-        - @songs.each.with_index(1) do |song,i|
-          %tr{ id: song.id }
-            %td
-              %figure.figure_ranking
-                =image_tag(song.album.album_image.url,class:"thumb_image")
-                %figcaption
-                  = link_to album_path(song.album) do
-                    = image_tag(song.album.album_image.url,class:"thumb_image thumb_caption")
-                  = link_to 'javascript:void(0)',onclick:"play_music(" + song.id.to_s + "); return false;", class:"tr-a-play", data: {song_id: song.id} do
-                    = embedded_svg("play_button_mini.svg",class:"play-trigger")
-            %td= song.name
-            %td= link_to song.album.artist.name, artist_path(song.album.artist)
-            %td= song_play_time(song.length)
-            %td{ id: "fav_song_#{song.id}" }
-              = render "fav_songs/like_button", song:song
-            %td.drawer-trigger
-              = link_to 'javascript:void(0)' do
-                = embedded_svg("check.svg")
-            %td= song.play_count
+      - if @songs.count != 0
+        %table.table(data-musics-id='#{@songs_id}')
+          - @songs.each.with_index(1) do |song,i|
+            %tr{ id: song.id }
+              %td
+                %figure.figure_table
+                  =image_tag(song.album.album_image.url,class:"thumb_image")
+                  %figcaption
+                    = link_to album_path(song.album) do
+                      = image_tag(song.album.album_image.url,class:"thumb_image thumb_caption")
+                    = link_to 'javascript:void(0)',onclick:"play_music(" + song.id.to_s + "); return false;", class:"tr-a-play", data: {song_id: song.id} do
+                      = embedded_svg("play_button_mini.svg",class:"play-trigger")
+              %td= song.name
+              %td= link_to song.album.artist.name, artist_path(song.album.artist)
+              %td= song_play_time(song.length)
+              %td{ id: "fav_song_#{song.id}" }
+                = render "fav_songs/like_button", song:song
+              %td.drawer-trigger
+                = link_to 'javascript:void(0)' do
+                  = embedded_svg("check.svg")
+              %td= song.play_count
+      - else
+        .content_none
+          好きな曲をお気に入りに追加しよう！
   /お気に入りアルバム
   .tab-content
     .tab-pane#favalbum
-      .thumb-container
-        = render @albums
+      - if @albums.count != 0
+        .thumb-container
+          = render @albums
+      - else
+        .content_none
+          好きなアルバムをお気に入りに追加しよう！
   /マイアーティスト
   .tab-content
     .tab-pane#myartist
-      .thumb-container
-        = render @artists
+      - if @artists.count != 0
+        .thumb-container
+          = render @artists
+      - else
+        .content_none
+          気になる新着情報を逃さずチェック アーティストフォローしよう！
