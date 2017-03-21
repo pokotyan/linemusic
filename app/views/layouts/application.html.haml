@@ -75,8 +75,8 @@
       .alert-danger= alert
     %div(data-pjax-container)
       = yield
+      = render "playlists/drawer" if user_signed_in?
     = render "layouts/footer"
     = render "layouts/login_modal"
     = render "layouts/playlist_modal"
-    = render "playlists/drawer" if user_signed_in?
     .spinner_overlay
