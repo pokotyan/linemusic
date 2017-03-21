@@ -12,7 +12,7 @@
     right:0px;
     height:70px;
     background-color:#1e283c;
-    z-index:2; //サムネイルのキャプションがフッターの上に重ならないようにする
+    z-index:6; //サムネイルのキャプションがフッターの上に重ならないようにする
     .audio_player{
       display: flex;
       justify-content: space-between;
