@@ -27,46 +27,8 @@
 .container
   = render partial: "songs/title_bar", locals: {title: "みんなのプレイリスト",path:"#"}
   .thumb-container
-    .playlist_thumb
-      .flex-column
-        =link_to "#" do
-          .title プレイリスト名
-        =link_to "#" do
-          .user ユーザー名
-        .favorite
-          %span.glyphicon.glyphicon-star お気に入り数
-        =link_to "#" do
-          .list_thumb
-            .thumb_image1
-              = image_tag(Playlist.first.songs[0].album.album_image.url)
-            .thumb_image2
-              = image_tag(Playlist.first.songs[1].album.album_image.url)
-            .thumb_image3
-              = image_tag(Playlist.first.songs[2].album.album_image.url)
-            .thumb_image4
-              = image_tag(Playlist.first.songs[3].album.album_image.url)
-            .thumb_image5
-              = image_tag(Playlist.first.songs[4].album.album_image.url)
-    .playlist_thumb
-      .flex-column
-        =link_to "#" do
-          .title プレイリスト名
-        =link_to "#" do
-          .user ユーザー名
-        .favorite
-          %span.glyphicon.glyphicon-star お気に入り数
-        =link_to "#" do
-          .list_thumb
-            .thumb_image1
-              = image_tag(Playlist.first.songs[0].album.album_image.url)
-            .thumb_image2
-              = image_tag(Playlist.first.songs[1].album.album_image.url)
-            .thumb_image3
-              = image_tag(Playlist.first.songs[2].album.album_image.url)
-            .thumb_image4
-              = image_tag(Playlist.first.songs[3].album.album_image.url)
-            .thumb_image5
-              = image_tag(Playlist.first.songs[4].album.album_image.url)
+    - @everyone_playlists.each do |playlist|
+      = render partial: "songs/everyone_playlist", locals: {playlist: playlist}
 / チケットモーダル トリガー
 %a#ticket_modal_trigger{"data-target" => "#ticket_modal", "data-toggle" => "modal"}
 / チケットモーダル 内容

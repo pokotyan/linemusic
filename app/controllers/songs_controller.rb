@@ -3,6 +3,9 @@ class SongsController < ApplicationController
     @rankings = Song.includes(:album).order(play_count: :desc).limit(6)
     @new_albums = Album.order(release_date: :desc).limit(9)
     @reccomend_artists = Artist.all.select{|a|a.reccomend?}.take(6)
+
+    public_playlists = Playlist.where("private = ?", false)
+    @everyone_playlists = public_playlists.select{|playlist| playlist.songs.count > 0}.take(6)
   end
 
   def new
