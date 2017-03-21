@@ -32,6 +32,96 @@
       }
     }
   }
+  //みんなのプレイリストのサムネ
+  .playlist_thumb{
+    float: left;      //各サムネイルの横並び
+    margin-top: 20px;
+    margin-left: 26px;
+    width: 306px;
+    height: 180px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    border: 1px solid #e5e5e5;
+    display: flex;
+    .flex-column{
+      display: flex;
+      flex-direction: column;
+      .title{
+        width: 100%;
+        height: 30px;
+      }
+      .user{
+        width: 100%;
+        height: 30px;
+        font-size: 13px;
+      }
+      .favorite{
+        width: 100%;
+        height: 19px;
+        margin-bottom: 5px;
+      }
+      .list_thumb{
+        width: 274px;
+        height: 70px;
+        display: flex;
+        position: relative;
+        .thumb_image1{
+          width: 70px;
+          height: 70px;
+          z-index: 4;
+          img{
+            width: 100%;
+            height: auto;
+          }
+        }
+        .thumb_image2{
+          position: absolute;
+          left: 51px;
+          width: 70px;
+          height: 70px;
+          z-index: 3;
+          img{
+            width: 100%;
+            height: auto;
+          }
+        }
+        .thumb_image3{
+          position: absolute;
+          left: 102px;
+          width: 70px;
+          height: 70px;
+          z-index: 2;
+          img{
+            width: 100%;
+            height: auto;
+          }
+        }
+        .thumb_image4{
+          position: absolute;
+          left: 153px;
+          width: 70px;
+          height: 70px;
+          z-index: 1;
+          img{
+            width: 100%;
+            height: auto;
+          }
+        }
+        .thumb_image5{
+          position: absolute;
+          left: 204px;
+          width: 70px;
+          height: 70px;
+          z-index: 0;
+          img{
+            width: 100%;
+            height: auto;
+          }
+        }
+      }
+    }
+  }
 }
 //キャプション 参考 http://www.nxworld.net/tips/css-only-caption-effect.html#anchor01
 figure {

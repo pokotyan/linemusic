@@ -1,0 +1,13 @@
+.playlist_thumb
+  .flex-column
+    =link_to playlist_path(playlist) do
+      .title= playlist.name
+    =link_to playlist_path(playlist) do
+      .user= playlist.user.name
+    .favorite
+      %span.glyphicon.glyphicon-star 9999
+    =link_to playlist_path(playlist) do
+      - image_urls = playlist.songs.map{|song| song.album.album_image.url}.uniq.take(5)
+      .list_thumb
+        -image_urls.each.with_index(1) do |url,i|
+          = render partial: "songs/everyone_playlist_image", locals: {url: url,i: i}

@@ -23,6 +23,12 @@
   = render partial: "songs/title_bar", locals: {title: "おすすめアーティスト",path:"/trend"}
   .thumb-container
     = render @reccomend_artists
+%hr.midline
+.container
+  = render partial: "songs/title_bar", locals: {title: "みんなのプレイリスト",path:"#"}
+  .thumb-container
+    - @everyone_playlists.each do |playlist|
+      = render partial: "songs/everyone_playlist", locals: {playlist: playlist}
 / チケットモーダル トリガー
 %a#ticket_modal_trigger{"data-target" => "#ticket_modal", "data-toggle" => "modal"}
 / チケットモーダル 内容
