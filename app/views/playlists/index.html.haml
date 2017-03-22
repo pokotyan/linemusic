@@ -10,6 +10,12 @@
   /トレンド
   .tab-content
     .tab-pane.active#trend
+      .thumb-container
+        - @playlists.each do |playlist|
+          = render partial: "songs/everyone_playlist", locals: {playlist: playlist}
   /最新
   .tab-content
     .tab-pane#timeline
+      .thumb-container
+        - @new_playlists.each do |playlist|
+          = render partial: "songs/everyone_playlist", locals: {playlist: playlist}
