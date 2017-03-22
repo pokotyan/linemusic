@@ -1,4 +1,9 @@
 class PlaylistsController < ApplicationController
+  def index
+    @playlists = Playlist.where("private = ?", false)
+    @new_playlists = Playlist.where("private = ?", false).order(created_at: :desc)
+  end
+
   def create
     #params[:data]はこんなデータ {"data"=>{"title"=>"test_title", "desc"=>"test_desc", "public_state"=>"publish"}}
     title = params[:data][:title]

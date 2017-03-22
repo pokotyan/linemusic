@@ -25,7 +25,7 @@
     = render @reccomend_artists
 %hr.midline
 .container
-  = render partial: "songs/title_bar", locals: {title: "みんなのプレイリスト",path:"#"}
+  = render partial: "songs/title_bar", locals: {title: "みんなのプレイリスト",path:"/playlists"}
   .thumb-container
     - @everyone_playlists.each do |playlist|
       = render partial: "songs/everyone_playlist", locals: {playlist: playlist}

@@ -1,0 +1,21 @@
+.container
+  .trend-title
+    = embedded_svg("public_playlists.svg")
+    %h2.txt みんなのプレイリスト
+  %ul.nav.nav-tabs
+    %li.active
+      =link_to "トレンド","#trend", data: { toggle: 'tab' }
+    %li
+      =link_to "最新","#timeline", data: { toggle: 'tab' }
+  /トレンド
+  .tab-content
+    .tab-pane.active#trend
+      .thumb-container
+        - @playlists.each do |playlist|
+          = render partial: "songs/everyone_playlist", locals: {playlist: playlist}
+  /最新
+  .tab-content
+    .tab-pane#timeline
+      .thumb-container
+        - @new_playlists.each do |playlist|
+          = render partial: "songs/everyone_playlist", locals: {playlist: playlist}
