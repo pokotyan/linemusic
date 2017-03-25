@@ -6,8 +6,13 @@ class ArtistsController < ApplicationController
     @artist_songs = @artist.albums.map{|a|a.songs}.flatten
     @songs_id = @artist_songs.map{|s|s.id}
 
-    @songs_keywords = Indico.keywords(@artist_songs.map{|s|s.name}.join(" "))
-    @songs_emotions = Indico.emotion(@artist_songs.map{|s|s.name}.join(" "))
+    begin
+      @songs_keywords = Indico.keywords(@artist_songs.map{|s|s.name}.join(" "))
+      @songs_emotions = Indico.emotion(@artist_songs.map{|s|s.name}.join(" "))
+    rescue => e
+      @songs_keywords = {"#{e}":0}
+      @songs_emotions = {"#{e}":0}
+    end
   end
 
   def new
