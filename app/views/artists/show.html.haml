@@ -20,25 +20,53 @@
         .row
           .col-md-2#follow-button
             = render 'follows/follow_button', artist: @artist
-  %table.table(data-musics-id='#{@songs_id}')
-    - @artist_songs.each.with_index(1) do |song,i|
-      %tr{ id: song.id }
-        %td= link_to i,'javascript:void(0)',onclick:"play_music(" + song.id.to_s + "); return false;",class:"tr-a-play", data: {song_id: song.id}
-        %td= song.name
-        %td= link_to song.album.name, album_path(song.album)
-        %td= song_play_time(song.length)
-        %td{ id: "fav_song_#{song.id}" }
-          -if user_signed_in?
-            = render "fav_songs/like_button", song:song
-          -else
-            = link_to 'javascript:void(0)',data:{target:"#login_modal",toggle:"modal"} do
-              = embedded_svg("un_favorite.svg")
-        -if user_signed_in?
-          %td.drawer-trigger
-            = link_to 'javascript:void(0)' do
-              = embedded_svg("check.svg")
-        -else
-          %td
-            = link_to 'javascript:void(0)',data:{target:"#login_modal",toggle:"modal"} do
-              = embedded_svg("check.svg")
-        %td= song.play_count
+  %ul.nav.nav-tabs
+    %li.active
+      =link_to "ソング","#songs", data: { toggle: 'tab' }
+    %li
+      =link_to "曲名からのキーワード分析","#keywords", data: { toggle: 'tab' }
+    %li
+      =link_to "曲名からの感情分析","#emotions", data: { toggle: 'tab' }
+  /ソング
+  .tab-content
+    .tab-pane.active#songs
+      %table.table(data-musics-id='#{@songs_id}')
+        - @artist_songs.each.with_index(1) do |song,i|
+          %tr{ id: song.id }
+            %td= link_to i,'javascript:void(0)',onclick:"play_music(" + song.id.to_s + "); return false;",class:"tr-a-play", data: {song_id: song.id}
+            %td= song.name
+            %td= link_to song.album.name, album_path(song.album)
+            %td= song_play_time(song.length)
+            %td{ id: "fav_song_#{song.id}" }
+              -if user_signed_in?
+                = render "fav_songs/like_button", song:song
+              -else
+                = link_to 'javascript:void(0)',data:{target:"#login_modal",toggle:"modal"} do
+                  = embedded_svg("un_favorite.svg")
+            -if user_signed_in?
+              %td.drawer-trigger
+                = link_to 'javascript:void(0)' do
+                  = embedded_svg("check.svg")
+            -else
+              %td
+                = link_to 'javascript:void(0)',data:{target:"#login_modal",toggle:"modal"} do
+                  = embedded_svg("check.svg")
+            %td= song.play_count
+  /曲名からのキーワード分析
+  .tab-content
+    .tab-pane#keywords
+      - @songs_keywords.each do |keyword,per|
+        - per = number_to_percentage(per * 100, precision: 0)
+        = keyword
+        .progress
+          .progress-bar{"aria-valuemax":"100", "aria-valuemin":"0", "style": "width: #{per}","role":"progressbar"}
+            = per
+  /曲名からの感情分析
+  .tab-content
+    .tab-pane#emotions
+      - @songs_emotions.each do |emotion,per|
+        - per = number_to_percentage(per * 100, precision: 0)
+        = emotion
+        .progress
+          .progress-bar{"aria-valuemax":"100", "aria-valuemin":"0", "style": "width: #{per}","role":"progressbar"}
+            = per
