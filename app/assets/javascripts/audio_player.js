@@ -104,11 +104,11 @@ $(document).on('ready pjax:success',function(){
     $(".repeat_all").on("click",function(){
       var color = $(this).css("fill");
       if(color == "rgb(255, 255, 255)"){
-        repeat_all = true;
+        controll.repeat_all = true;
         $(this).css("fill","green");
         $(this).css("stroke","green");
       }else{
-        repeat_all = false;
+        controll.repeat_all = false;
         $(this).css("fill","white");
         $(this).css("stroke","white");
       };
@@ -121,11 +121,11 @@ $(document).on('ready pjax:success',function(){
     $(".random").on("click",function(){
       var color = $(this).css("fill");
       if(color == "rgb(255, 255, 255)"){
-        random = true;
+        controll.random = true;
         $(this).css("fill","green");
         $(this).css("stroke","green");
       }else{
-        random = false;
+        controll.random = false;
         $(this).css("fill","white");
         $(this).css("stroke","white");
       };
