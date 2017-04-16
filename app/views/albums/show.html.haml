@@ -40,3 +40,4 @@
             = link_to 'javascript:void(0)',data:{target:"#login_modal",toggle:"modal"} do
               = embedded_svg("check.svg")
         %td= song.play_count
+  .fb-comments{"data-href": "#{url_for(only_path: false)}", "data-numposts":5}
