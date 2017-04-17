@@ -20,4 +20,5 @@ Rails.application.routes.draw do
   resources :playlist_songs, only: [:create,:destroy]
   resources :trend, only: :index
   root 'songs#index'
+  get '*anything', to: 'errors#routing_error'
 end

@@ -1,0 +1,11 @@
+.center_form
+  .exception
+    .exclamation_mark
+      = embedded_svg("exclamation_mark.svg")
+    .txt
+      申し訳ありません。
+      %br
+      システムエラーが発生しました。
+    %div
+      = link_to root_path do
+        %button.btn.btn-primary.btn-lg.green_button ホーム
