@@ -8,4 +8,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :admin, :user_image])
   end
 
+  rescue_from ActionController::RoutingError, with: :rescue404
+
+  def rescue404(e)
+    @exception = e
+    render 'errors/not_found', status: 404
+  end
 end
