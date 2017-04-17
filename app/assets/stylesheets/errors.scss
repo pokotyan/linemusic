@@ -1,0 +1,22 @@
+.exception{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  .exclamation_mark{
+    margin-top: 50px;
+    margin-bottom: 10px;
+  }
+  .txt{
+    color: #aaa;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .green_button{
+    width: 122px;
+    border-radius: 0px;
+    border: none;
+    margin: 0;
+    background-color: #38c322;
+  }
+}
+

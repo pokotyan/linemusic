@@ -1,0 +1,11 @@
+.center_form
+  .exception
+    .exclamation_mark
+      = embedded_svg("exclamation_mark.svg")
+    .txt
+      お探しのページは削除されたか、
+      %br
+      名前が変更されたため、一時的に利用できません。
+    %div
+      = link_to root_path do
+        %button.btn.btn-primary.btn-lg.green_button ホーム
